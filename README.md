@@ -1,4 +1,2 @@
 # habit-tracker
-Creators: Kaden Hardy
-Creators: Rylan Hemsley
-Creators: James Hess
+Creators: Kaden Hardy, Rylan Hemsley, James Hess
