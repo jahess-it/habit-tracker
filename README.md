@@ -1,2 +1,2 @@
 # habit-tracker
-Creators: Kaden Hardy
+Creators: Kaden James Hardy
