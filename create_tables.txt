@@ -1,0 +1,49 @@
+CREATE TABLE USER
+(
+  Username VARCHAR(255) PRIMARY KEY CHECK (Username SIMILAR TO '[\w.-]+'),
+  PasswordHash VARCHAR(255) NOT NULL,
+  Email VARCHAR(128) CHECK (Email SIMILAR TO '_{1,64}@%.%'),
+  MobilePhone VARCHAR(14) CHECK (MobilePhone SIMILAR TO '[\d+-.\(\)]{7,14}'),
+  PrivilegeLevel CHAR(1) NOT NULL
+);
+
+CREATE TABLE DAY_SUMMARY
+(
+  Day DATE NOT NULL,
+  Username VARCHAR(255) NOT NULL REFERENCES USER(Username),
+  Journal VARCHAR(65533),
+  DayRating FLOAT4,
+  PRIMARY KEY (Day, Username)
+);
+
+CREATE TABLE HABIT_CATEGORY
+(
+  CategoryName VARCHAR(255) NOT NULL,
+  Username VARCHAR(255) NOT NULL REFERENCES USER(Username),
+  DisplayColor CHAR(7) NOT NULL CHECK (DisplayColor SIMILAR TO '#[\dABCDEF]{6}'),
+  PRIMARY KEY (CategoryName, Username)
+);
+
+CREATE TABLE HABIT
+(
+  HabitID SERIAL PRIMARY KEY,
+  HabitTitle VARCHAR(255) NOT NULL,
+  HabitDescription VARCHAR(65533),
+  HabitTimed BOOL NOT NULL,
+  HabitRatable BOOL NOT NULL,
+  CategoryName VARCHAR(255) NOT NULL,
+  Username VARCHAR(255) NOT NULL,
+  FOREIGN KEY (CategoryName, Username) REFERENCES HABIT_CATEGORY(CategoryName, Username)
+);
+
+CREATE TABLE HABIT_INSTANCE
+(
+  HabitID SERIAL NOT NULL REFERENCES HABIT(HabitID),
+  Day DATE NOT NULL,
+  Username VARCHAR(255) NOT NULL REFERENCES USER(Username),
+  Complete BOOL NOT NULL,
+  TimeSpent INTERVAL HOUR TO SECOND (0) NOT NULL,
+  HabitRating FLOAT4 NOT NULL,
+  PRIMARY KEY (HabitID, Day, Username),
+  FOREIGN KEY (Day, Username) REFERENCES DAY_SUMMARY(Day, Username)
+);
