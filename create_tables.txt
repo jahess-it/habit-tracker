@@ -1,5 +1,4 @@
-CREATE TABLE User
-(
+CREATE TABLE UserAccount (
   username VARCHAR(255) PRIMARY KEY CHECK (username SIMILAR TO '[\w.-]+'),
   passwordHash VARCHAR(255) NOT NULL,
   email VARCHAR(128) CHECK (email SIMILAR TO '_{1,64}@%.%'),
@@ -7,25 +6,22 @@ CREATE TABLE User
   privilegeLevel CHAR(1) NOT NULL
 );
 
-CREATE TABLE DaySummary
-(
+CREATE TABLE DaySummary (
   day DATE NOT NULL,
-  username VARCHAR(255) NOT NULL REFERENCES User(username),
+  username VARCHAR(255) NOT NULL REFERENCES UserAccount(username),
   journal VARCHAR(65533),
   dayRating FLOAT4,
   PRIMARY KEY (day, username)
 );
 
-CREATE TABLE HabitCategory
-(
+CREATE TABLE HabitCategory (
   categoryName VARCHAR(255) NOT NULL,
-  username VARCHAR(255) NOT NULL REFERENCES User(username),
+  username VARCHAR(255) NOT NULL REFERENCES UserAccount(username),
   displayColor CHAR(7) NOT NULL CHECK (displayColor SIMILAR TO '#[\dABCDEF]{6}'),
   PRIMARY KEY (categoryName, username)
 );
 
-CREATE TABLE Habit
-(
+CREATE TABLE Habit (
   habitID SERIAL PRIMARY KEY,
   habitTitle VARCHAR(255) NOT NULL,
   habitDescription VARCHAR(65533),
@@ -36,11 +32,10 @@ CREATE TABLE Habit
   FOREIGN KEY (categoryName, username) REFERENCES HabitCategory(categoryName, username)
 );
 
-CREATE TABLE HabitInstance
-(
+CREATE TABLE HabitInstance (
   habitID SERIAL NOT NULL REFERENCES Habit(habitID),
   day DATE NOT NULL,
-  username VARCHAR(255) NOT NULL REFERENCES User(username),
+  username VARCHAR(255) NOT NULL REFERENCES UserAccount(username),
   complete BOOL NOT NULL,
   timeSpent INTERVAL HOUR TO SECOND (0) NOT NULL,
   habitRating FLOAT4 NOT NULL,
