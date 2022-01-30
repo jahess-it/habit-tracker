@@ -1,0 +1,19 @@
+INSERT INTO public.useraccount(
+	username, passwordhash, email, mobilephone, privilegelevel)
+	VALUES ('jonsnow', '892kjfa89afn329iafds', 'jon@snow.org', '5555555555', 'R');
+  
+INSERT INTO public.habitcategory(
+	categoryname, username, displaycolor)
+	VALUES ('health', 'jonsnow', '#0000FF');
+ 
+INSERT INTO public.habit(
+	habitid, habittitle, habitdescription, habittimed, habitratable, categoryname, username)
+	VALUES ('1', 'meditation', 'morning meditation', TRUE, TRUE, 'health', 'jonsnow');
+
+INSERT INTO public.daysummary(
+	day, username, journal, dayrating)
+	VALUES ('2022-01-09', 'jonsnow', 'Today I meditated.', '4.8');
+  
+INSERT INTO public.habitinstance(
+	habitid, day, username, complete, timespent, habitrating)
+	VALUES ('1', '2022-01-08', 'jonsnow', TRUE, '20:00', '4.4');
