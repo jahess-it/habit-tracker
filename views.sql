@@ -3,6 +3,6 @@ CREATE VIEW journals AS
     FROM day_summary
     WHERE username = 'jonsnow';
 
-CREATE VIEW admin_view AS
+CREATE VIEW admin AS
     SELECT username, title
     FROM habit
