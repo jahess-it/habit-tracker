@@ -1,6 +1,6 @@
 CREATE VIEW day AS
-    SELECT * FROM get_calendar(get_current_day(),
-        get_current_day() + 1);
+    SELECT * FROM get_calendar(CURRENT_DATE),
+        CURRENT_DATE + 1);
 
 CREATE VIEW week AS
     SELECT * FROM get_calendar(get_week_start(),
