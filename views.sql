@@ -1,7 +1,7 @@
 CREATE SCHEMA api;
 
 CREATE VIEW api.upcoming AS
-    SELECT * FROM get_calendar(CURRENT_DATE),
+    SELECT * FROM get_calendar(CURRENT_DATE,
         CURRENT_DATE + 1);
 
 CREATE VIEW api.week AS
