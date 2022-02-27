@@ -80,7 +80,7 @@ CREATE OR REPLACE FUNCTION login(username VARCHAR(255), password_hash VARCHAR(25
       
       SELECT sign(row_to_json(admins), current_setting('app.settings.jwt_secret')) AS token
       FROM (
-        SELECT 'admins' AS role, login.email AS email, _username,
+        SELECT 'admins' AS role, _username,
        	        EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*60*60 AS exp
       ) admins
       INTO _jwt_token;
