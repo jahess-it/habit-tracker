@@ -70,7 +70,7 @@ CREATE OR REPLACE FUNCTION login(username VARCHAR(255), password_hash VARCHAR(25
       _username VARCHAR(255);
       _jwt_token TEXT;
     BEGIN
-      SELECT _username FROM user_account
+      SELECT username FROM user_account
       WHERE user_account.username = login.username AND user_account.password_hash = login.password_hash
       INTO _username;
       
