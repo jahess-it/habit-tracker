@@ -1,3 +1,4 @@
+-- View Helper Functions
 CREATE OR REPLACE FUNCTION get_week_start() RETURNS DATE AS
     $$ SELECT CURRENT_DATE - EXTRACT(DOW FROM CURRENT_DATE)::INT4 $$
     LANGUAGE SQL;
@@ -22,4 +23,69 @@ CREATE OR REPLACE FUNCTION get_calendar(start DATE, finish DATE) RETURNS TABLE(
     WHERE day BETWEEN start AND finish
     $$
     LANGUAGE SQL;
+
+-- JWT Helper Functions
+CREATE OR REPLACE FUNCTION url_encode(data BYTEA) RETURNS TEXT AS
+    $$ SELECT translate(encode(data, 'base64'), E'+/=\n', '-_');
+    $$
+    LANGUAGE SQL;
+
+CREATE OR REPLACE FUNCTION algorithm_sign(signables TEXT, secret TEXT, algorithm TEXT)
+RETURNS TEXT AS
+    $$ WITH
+      alg AS (
+        SELECT CASE
+          WHEN algorithm = 'HS256' THEN 'sha256'
+          WHEN algorithm = 'HS384' THEN 'sha384'
+          WHEN algorithm = 'HS512' THEN 'sha512'
+          ELSE '' END AS id)
+    SELECT url_encode(hmac(signables, secret, alg.id)) FROM alg;
+    $$
+    LANGUAGE SQL;
+
+CREATE OR REPLACE FUNCTION sign(payload JSON, secret TEXT, algorithm TEXT DEFAULT 'HS512')
+RETURNS TEXT AS
+    $$ WITH
+      header AS (
+        SELECT url_encode(convert_to('{"alg":"' || algorithm || '","typ":"JWT"}', 'utf8')) AS data),
+      payload AS (
+        SELECT url_encode(convert_to(payload::TEXT, 'utf8')) AS data),
+      signables AS (
+        SELECT header.data || '.' || payload.data AS data FROM header, payload)
+    SELECT signables.data || '.' ||
+           algorithm_sign(signables.data, secret, algorithm) FROM signables;
+    $$
+    LANGUAGE SQL;
+
+-- Authentication Endpoints
+CREATE OR REPLACE FUNCTION register(username VARCHAR(255), password_hash VARCHAR(255),
+        email VARCHAR(128), mobile_phone VARCHAR(18)) RETURNS VOID AS
+    $$ INSERT INTO user_account (username, password_hash, email, mobile_phone, privilege_level)
+    VALUES (register.username, register.password_hash, register.email, register.mobile_phone, 'b');
+    $$
+    LANGUAGE SQL SECURITY DEFINER;
+
+CREATE OR REPLACE FUNCTION login(username VARCHAR(255), password_hash VARCHAR(255)) RETURNS TEXT AS
+    $$ DECLARE
+      username VARCHAR(255);
+      jwt_token TEXT;
+    BEGIN
+      SELECT username FROM user_account
+      WHERE user_account.username = login.username AND user_account.password_hash = login.password_hash;
+      
+      IF username IS NULL THEN
+	RAISE invalid_password USING message = 'incorrect username or password';
+      END IF;
+      
+      SELECT sign(row_to_json(admins), current_setting('app.settings.jwt_secret')) AS token
+      FROM (
+        SELECT 'admins' AS role, login.email AS email, username,
+       	        EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*60*60 AS exp
+      ) admins
+      INTO jwt_token;
+
+      RETURN jwt_token;
+    END;
+    $$
+    LANGUAGE PLPGSQL SECURITY DEFINER;
 
