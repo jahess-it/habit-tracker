@@ -42,3 +42,14 @@ CREATE TABLE habit_instance (
   PRIMARY KEY (habit_id, day, username),
   FOREIGN KEY (day, username) REFERENCES day_summary(day, username)
 );
+
+CREATE TABLE deleted_habits (
+  habit_id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(65533),
+  timed BOOL NOT NULL,
+  ratable BOOL NOT NULL,
+  category_name VARCHAR(255) NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  FOREIGN KEY (category_name, username) REFERENCES category(category_name, username)
+);
