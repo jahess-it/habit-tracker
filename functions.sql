@@ -26,20 +26,23 @@ CREATE OR REPLACE FUNCTION get_calendar(start DATE, finish DATE) RETURNS TABLE(
     LANGUAGE SQL;
     
     
+
 -- TRIGGERS
 CREATE OR REPLACE FUNCTION trigger_save_deleted_habit() 
     RETURNS TRIGGER AS $$
-    INSERT INTO deleted_habits (habit_id, title, description, timed, ratable, category_name, username)
-    VALUES (OLD);
-    $$ 
-    LANGUAGE plpgsql;
+    BEGIN
+    	INSERT INTO deleted_habits (
+		habit_id, title, description, timed, ratable, category_name, username)
+	VALUES (OLD);
+	RETURN OLD;
+    END;
+    $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER save_deleted_habit
     BEFORE DELETE ON habit
     FOR EACH ROW
-    EXECUTE PROCEDURE trigger_save_deleted_habit()
-    $$ 
-    LANGUAGE plpgsql;
+    EXECUTE PROCEDURE trigger_save_deleted_habit();
+
 
 
 -- JWT Helper Functions
