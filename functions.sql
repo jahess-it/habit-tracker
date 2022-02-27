@@ -67,24 +67,25 @@ CREATE OR REPLACE FUNCTION register(username VARCHAR(255), password_hash VARCHAR
 
 CREATE OR REPLACE FUNCTION login(username VARCHAR(255), password_hash VARCHAR(255)) RETURNS TEXT AS
     $$ DECLARE
-      username VARCHAR(255);
-      jwt_token TEXT;
+      _username VARCHAR(255);
+      _jwt_token TEXT;
     BEGIN
-      SELECT username FROM user_account
-      WHERE user_account.username = login.username AND user_account.password_hash = login.password_hash;
+      SELECT _username FROM user_account
+      WHERE user_account.username = login.username AND user_account.password_hash = login.password_hash
+      INTO _username;
       
-      IF username IS NULL THEN
+      IF _username IS NULL THEN
 	RAISE invalid_password USING message = 'incorrect username or password';
       END IF;
       
       SELECT sign(row_to_json(admins), current_setting('app.settings.jwt_secret')) AS token
       FROM (
-        SELECT 'admins' AS role, login.email AS email, username,
+        SELECT 'admins' AS role, login.email AS email, _username,
        	        EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*60*60 AS exp
       ) admins
-      INTO jwt_token;
+      INTO _jwt_token;
 
-      RETURN jwt_token;
+      RETURN _jwt_token;
     END;
     $$
     LANGUAGE PLPGSQL SECURITY DEFINER;
