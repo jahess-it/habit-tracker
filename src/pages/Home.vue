@@ -1,10 +1,10 @@
 <template>
   <div>
     <b-jumbotron>
-      <p>Welcome to the IT350 blog!</p>
+      <p>Welcome to the Habit Tracker!</p>
     </b-jumbotron>
     <br />
-    <div v-if="loading">Loading articles....</div>
+    <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
       <li v-for="article in articles" :key="article.articleid">
         <router-link :to="`article/${article.articleid}`">{{
