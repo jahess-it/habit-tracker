@@ -52,12 +52,14 @@ class Api {
     );
   }
 
-  login(email, password) {
-    return axios.post(API_URL + "/rpc/login", { email, password });
+  login(username, password) {
+    //TODO: Hash password
+    return axios.post(API_URL + "/rpc/login", { username, password });
   }
 
-  signup(email, password, name) {
-    return axios.post(API_URL + "/rpc/signup", { email, password, name });
+  register(username, password, email, mobile_phone) {
+    //TODO: Hash password
+    return axios.post(API_URL + "/rpc/register", { username, password, email, mobile_phone });
   }
 }
 

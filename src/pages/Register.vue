@@ -9,12 +9,12 @@
       <form name="form" @submit.prevent="handleRegister">
         <div>
           <div class="form-group">
-            <label for="username">Name</label>
+            <label for="username">Username</label>
             <input
-              v-model="name"
+              v-model="username"
               type="text"
               class="form-control"
-              name="name"
+              name="username"
             />
           </div>
           <div class="form-group">
@@ -24,6 +24,15 @@
               type="email"
               class="form-control"
               name="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="mobile_phone">Mobile Phone</label>
+            <input
+              v-model="mobile_phone"
+              type="tel"
+              class="form-control"
+              name="mobile_phone"
             />
           </div>
           <div class="form-group">
@@ -60,8 +69,9 @@ export default {
   name: "Register",
   data() {
     return {
-      name: "",
+      username: "",
       email: "",
+      mobile_phone: "",
       password: "",
       loading: false,
       message: "",
@@ -72,7 +82,7 @@ export default {
       this.message = "";
       this.loading = true;
 
-      Api.signup(this.email, this.password, this.name)
+      Api.register(this.username, this.password, this.email, this.mobile_phone)
         .then(() => {
           this.$router.push("/login");
         })
