@@ -17,7 +17,7 @@
 
 <script>
 import Api from "../api";
-
+import { } from '../auth';
 export default {
   name: "Home",
   data: function () {
