@@ -37,6 +37,7 @@ const checkAuth = function(to, _, next) {
 };
 
 const router = new VueRouter({
+  mode: "history",
   routes: [
     { path: "/", component: Home },
     { path: "/article/:id", component: Article },
