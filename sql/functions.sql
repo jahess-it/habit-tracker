@@ -26,7 +26,6 @@ CREATE OR REPLACE FUNCTION get_calendar(start DATE, finish DATE) RETURNS TABLE(
     LANGUAGE SQL;
     
     
-
 -- TRIGGERS
 CREATE OR REPLACE FUNCTION trigger_save_deleted_habit() 
     RETURNS TRIGGER AS $$
@@ -42,7 +41,6 @@ CREATE TRIGGER save_deleted_habit
     BEFORE DELETE ON habit
     FOR EACH ROW
     EXECUTE PROCEDURE trigger_save_deleted_habit();
-
 
 
 -- JWT Helper Functions
@@ -79,14 +77,14 @@ RETURNS TEXT AS
     LANGUAGE SQL;
 
 -- Authentication Endpoints
-CREATE OR REPLACE FUNCTION register(username VARCHAR(255), password_hash VARCHAR(255),
+CREATE OR REPLACE FUNCTION public.register(username VARCHAR(255), password_hash VARCHAR(255),
         email VARCHAR(128), mobile_phone VARCHAR(18)) RETURNS VOID AS
     $$ INSERT INTO user_account (username, password_hash, email, mobile_phone, privilege_level)
     VALUES (register.username, register.password_hash, register.email, register.mobile_phone, 'b');
     $$
     LANGUAGE SQL SECURITY DEFINER;
 
-CREATE OR REPLACE FUNCTION login(username VARCHAR(255), password_hash VARCHAR(255)) RETURNS TEXT AS
+CREATE OR REPLACE FUNCTION public.login(username VARCHAR(255), password_hash VARCHAR(255)) RETURNS TEXT AS
     $$ DECLARE
       _username VARCHAR(255);
       _jwt_token TEXT;
