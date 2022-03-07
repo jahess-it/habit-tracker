@@ -53,12 +53,10 @@ class Api {
   }
 
   login(username, password) {
-    //TODO: Hash password
     return axios.post(API_URL + "/rpc/login", { username, password });
   }
 
   register(username, password, email, mobile_phone) {
-    //TODO: Hash password
     return axios.post(API_URL + "/rpc/register", { username, password, email, mobile_phone });
   }
 }
