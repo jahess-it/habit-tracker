@@ -70,8 +70,8 @@ export default {
   data() {
     return {
       username: "",
-      email: "",
-      mobile_phone: "",
+      email: null,
+      mobile_phone: null,
       password: "",
       loading: false,
       message: "",

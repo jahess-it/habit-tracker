@@ -76,6 +76,7 @@ RETURNS TEXT AS
     $$
     LANGUAGE SQL;
 
+
 -- Authentication Endpoints
 CREATE OR REPLACE FUNCTION public.register(username VARCHAR(255), password VARCHAR(255),
         email VARCHAR(128), mobile_phone VARCHAR(18)) RETURNS VOID AS
