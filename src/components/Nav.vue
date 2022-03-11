@@ -15,7 +15,7 @@
 <script>
   export default {
     name: "nav",
-    ,
+    
     data: function () {
       return {};
     },
