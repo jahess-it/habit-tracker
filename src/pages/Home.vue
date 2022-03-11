@@ -1,5 +1,7 @@
 <template>
-  <Navbar></navbar>
+  <div>
+    <Navbar :navbar="navbar"></Navbar>
+  </div>
   <div>
     <b-jumbotron>
       <p>Welcome to the Habit Tracker!</p>
