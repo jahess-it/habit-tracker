@@ -5,11 +5,11 @@ const API_URL = `http://${location.hostname}:8000`;
 
 class Api {
   getArticles() {
-    return axios.get(API_URL + "/articles", {});
+    return axios.get(API_URL + "/articles", {})
   }
 
   getUpcomingHabits(username) {
-    return axios.get(`${API_URL}/upcoming?username=eq.${username}`);
+    return axios.get(`${API_URL}/upcoming?username=eq.${username}`).data;
   }
 
   getWeekView(username) {
