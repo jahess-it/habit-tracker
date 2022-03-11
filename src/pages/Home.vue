@@ -22,7 +22,7 @@ import { } from '../auth';
 import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
-<--import Navbar from "../components/Navbar.vue";-->
+//import Navbar from "../components/Navbar.vue";
 
 export default {
   name: "Home",
@@ -41,6 +41,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Habit } <--, Navbar }-->
+  components: { Habit } //, Navbar }
 };
 </script>
