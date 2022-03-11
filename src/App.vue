@@ -10,6 +10,13 @@
 export default {
   name: "App",
   components: {},
+  data: function () {
+    return {
+      global: {
+        username: null
+      }
+    };
+  }
 };
 </script>
 
