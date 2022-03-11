@@ -1,6 +1,6 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <p>{{this.habit.title}} - {{this.habit.description}} - {{this.habit.cetegory_name}}</p>
+    <p>{{this.habit.title}} - {{this.habit.description}} - {{this.habit.category_name}}</p>
   </div>
 </template>
 
