@@ -14,6 +14,7 @@ import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
 
 Vue.config.productionTip = false;
+Vue.config.devtools = true;
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
