@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="./css/style.css">
+
 <template>
   <div id="app">
     <b-container>
