@@ -39,7 +39,6 @@ const checkAuth = function(to, _, next) {
 const router = new VueRouter({
   mode: "history",
   routes: [
-    { path: "/:username", component: Home, beforeEnter: checkAuth },
     { path: "/article/:id", component: Article },
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
@@ -54,6 +53,7 @@ const router = new VueRouter({
         { path: "", component: AdminArticleList },
       ],
     },
+    { path: "/:username", component: Home, beforeEnter: checkAuth }
   ],
 });
 
