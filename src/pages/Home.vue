@@ -1,5 +1,5 @@
 <template>
-  <Nav></nav>
+  <Navbar></navbar>
   <div>
     <b-jumbotron>
       <p>Welcome to the Habit Tracker!</p>
@@ -39,6 +39,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Habit, Nav }
+  components: { Habit, Navbar }
 };
 </script>
