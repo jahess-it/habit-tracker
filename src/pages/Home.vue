@@ -30,7 +30,9 @@ export default {
   },
   created: function () {
     this.loading = true;
-    Api.getUpcomingHabits(getUserIdFromToken(getJwtToken())).then((res) => {
+    this.token = getJwtToken();
+    this.username = getUserIdFromToken(this.token);
+    Api.getUpcomingHabits(this.username).then((res) => {
       this.habits = res.data;
       this.loading = false;
     });
