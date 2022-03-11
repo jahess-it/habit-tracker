@@ -1,8 +1,8 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <span float::left>{{this.habit.title}}</span>
+    <span style="float:left">{{this.habit.title}}</span>
     <span>{{this.habit.description}}</span>
-    <span style="float::right">{{this.habit.cetegory_name}}</span>
+    <span style="float:right">{{this.habit.cetegory_name}}</span>
     
   </div>
 </template>
