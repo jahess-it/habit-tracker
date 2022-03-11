@@ -20,7 +20,7 @@ import { } from '../auth';
 import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
-import Nav from "./components/Nav.vue";
+import Nav from "../components/Navbar.vue";
 
 export default {
   name: "Home",
