@@ -1,8 +1,7 @@
 import axios from "axios";
 import { authHeader, getJwtToken, getUserIdFromToken } from "./auth";
 
-//const API_URL = `http://${location.hostname}:8000`;
-const API_URL = `http://http://54.149.21.20:8000`;//
+const API_URL = `http://${location.hostname}:8000`;
 
 class Api {
   getArticles() {
