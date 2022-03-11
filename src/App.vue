@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <b-container>
+      <Nav :nav="nav"></nav>
       <router-view></router-view>
     </b-container>
   </div>
 </template>
 
 <script>
+import Nav from "../components/Nav.vue";
+
 export default {
   name: "App",
   components: {},
@@ -16,7 +19,8 @@ export default {
         username: null
       }
     };
-  }
+  },
+  components: { Nav }
 };
 </script>
 
