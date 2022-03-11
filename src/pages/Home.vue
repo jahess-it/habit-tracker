@@ -6,9 +6,9 @@
     <br />
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
-      <li v-for="habit in habits" :key="habit.habit_id">
+      <div v-for="habit in habits" :key="habit.habit_id">
         <Habit :habit="habit"></Habit>
-      </li>
+      </div>
     </ul>
   </div>
 </template>
