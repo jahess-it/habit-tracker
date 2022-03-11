@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <b-container>
-      <Nav></nav>
+      <Navbar></navbar>
       <router-view></router-view>
     </b-container>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav.vue";
+import Navbar from "./components/Navbar.vue";
 
 export default {
   name: "App",
@@ -20,7 +20,7 @@ export default {
       }
     };
   },
-  components: { Nav }
+  components: { Navbar }
 };
 </script>
 
