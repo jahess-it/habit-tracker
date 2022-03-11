@@ -8,7 +8,7 @@
   export default {
     name: "habit",
     props: {
-      habit
+      habit: Object
     },
     data: function () {
       return {
