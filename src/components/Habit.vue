@@ -1,6 +1,6 @@
 <template>
-  <div :style="{'background-color': _habit.display_color}">
-    <p>{{_habit.title}}</p>
+  <div :style="{'background-color': this.habit.display_color}">
+    <p>{{this.habit.title}}</p>
   </div>
 </template>
 
@@ -11,12 +11,8 @@
       habit: Object
     },
     data: function () {
-      return {
-        _habit: null
-      };
+      return {};
     },
-    created: function () {
-      _habit = this.habit
-    },
+    created: function () {}
   };
 </script>
