@@ -9,7 +9,7 @@ class Api {
   }
 
   getUpcomingHabits(username) {
-    return axios.get(`${API_URL}/upcoming?username=eq.${username}`).data;
+    return axios.get(`${API_URL}/upcoming?username=eq.${username}`);
   }
 
   getWeekView(username) {
