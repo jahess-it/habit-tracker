@@ -1,4 +1,5 @@
 <template>
+  <Nav></nav>
   <div>
     <b-jumbotron>
       <p>Welcome to the Habit Tracker!</p>
@@ -19,6 +20,7 @@ import { } from '../auth';
 import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
+import Nav from "./components/Nav.vue";
 
 export default {
   name: "Home",
@@ -37,6 +39,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Habit }
+  components: { Habit, Nav }
 };
 </script>
