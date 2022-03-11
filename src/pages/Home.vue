@@ -6,10 +6,8 @@
     <br />
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
-      <li v-for="article in articles" :key="article.articleid">
-        <router-link :to="`article/${article.articleid}`">{{
-          article.title
-        }}</router-link>
+      <li v-for="habit in habits" :key="habit.habit_id">
+        <Habit habit="habit"></Habit>
       </li>
     </ul>
   </div>
@@ -18,20 +16,23 @@
 <script>
 import Api from "../api";
 import { } from '../auth';
+import Habit from "../components/Habit.vue";
+
 export default {
-  name: "Home",
-  data: function () {
-    return {
-      loading: false,
-      articles: [],
-    };
-  },
-  created: function () {
-    this.loading = true;
-    Api.getArticles().then((res) => {
-      this.articles = res.data;
-      this.loading = false;
-    });
-  },
+    name: "Home",
+    data: function () {
+        return {
+            loading: false,
+            habits: [],
+        };
+    },
+    created: function () {
+        this.loading = true;
+        Api.getUpcomingHabits(this.$route.params.username).then((res) => {
+            this.habits = res.data;
+            this.loading = false;
+        });
+    },
+    components: { Habit }
 };
 </script>

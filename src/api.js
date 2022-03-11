@@ -8,6 +8,22 @@ class Api {
     return axios.get(API_URL + "/articles", {});
   }
 
+  getUpcomingHabits(username) {
+    return axios.get(`${API_URL}/upcoming?username=eq.${username}`);
+  }
+
+  getWeekView(username) {
+    return axios.get(`${API_URL}/week?username=eq.${username}`);
+  }
+
+  getMonthView(username) {
+    return axios.get(`${API_URL}/month?username=eq.${username}`);
+  }
+
+  getJournal(username, day) {
+    return axios.get(`${API_URL}/journal?username=eq.${username}&day=eq.${day}`);
+  }
+
   getArticleDetail(id) {
     return axios.get(API_URL + `/articles?articleid=eq.${id}`);
   }
