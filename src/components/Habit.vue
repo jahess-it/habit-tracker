@@ -1,7 +1,7 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <p>{{this.habit.title + " " +
-    this.habit.description + " " + 
+    <p>{{this.habit.description + " " +
+    this.habit.title + " " + 
     this.habit.category_name}}</p>
   </div>
 </template>
