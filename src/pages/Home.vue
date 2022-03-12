@@ -2,8 +2,8 @@
   <div>
     <div class="topnav">
       <a class="active" href="/">Home</a>
-      <a href="/Week">/Week</a>
-      <a href="/Month">Month</a>
+      <a href="/Week.vue">/Week</a>
+      <a href="/Month.vue">Month</a>
       <a href="/">Other</a>
     </div>
     <br />
