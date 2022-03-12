@@ -4,7 +4,7 @@
   <a href="#news">News</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
-</div
+</div>
   <div>
     <b-jumbotron>
       <h1 style="text-align: center">Habit Tracker</h1>
