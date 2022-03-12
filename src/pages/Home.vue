@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="topnav">
-      <router-link to="/" class="navbar, active">Home</router-link>
-      <router-link to="/Week" class="navbar">Week</router-link>
-      <router-link to="/Month" class="navbar">Month</router-link>
-      <router-link to="/" class="navbar">Other</router-link>
+      <a class="active" href="/">Home</a>
+      <a href="/Week">/Week</a>
+      <a href="/Month">Month</a>
+      <a href="/">Other</a>
     </div>
     <br />
     <div>
