@@ -1,16 +1,10 @@
 <template>
-  <!--<div>
-    <Navbar :navbar="navbar"></Navbar>
-  </div> -->
-  <div class="topnav" id="myTopnav">
-    <a href="#home" class="active">Home</a>
-    <a href="#week">Week</a>
-    <a href="#Month">Month</a>
-    <a href="#admin">Admin</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div
   <div>
     <b-jumbotron>
       <h1 style="text-align: center">Habit Tracker</h1>
@@ -31,7 +25,6 @@ import { } from '../auth';
 import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
-//import Navbar from "../components/Navbar.vue";
 
 export default {
   name: "Home",
@@ -50,6 +43,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Habit } //, Navbar }
+  components: { Habit }
 };
 </script>
