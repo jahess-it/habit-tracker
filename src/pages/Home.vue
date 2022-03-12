@@ -2,9 +2,18 @@
   <!--<div>
     <Navbar :navbar="navbar"></Navbar>
   </div> -->
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#week">Week</a>
+    <a href="#Month">Month</a>
+    <a href="#admin">Admin</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
   <div>
     <b-jumbotron>
-      <p>Welcome to the Habit Tracker!</p>
+      <h1 style="text-align: center">Habit Tracker</h1>
     </b-jumbotron>
     <br />
     <div v-if="loading">Loading habits . . .</div>
