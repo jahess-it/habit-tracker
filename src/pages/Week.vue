@@ -1,14 +1,10 @@
 <template>
   <div>
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a router-link to="/" class="navbar, active">Home</router-link>
-      <router-link to="/" class="navbar">Week</router-link>
-      <router-link to="/" class="navbar">Month</router-link>
-      <router-link to="/" class="navbar">Other</router-link>
+      <a class="active" href="/">Home</a>
+      <a href="/Week">/Week</a>
+      <a href="/Month">Month</a>
+      <a href="/">Other</a>
     </div>
     <br />
     <div>
