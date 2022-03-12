@@ -5,7 +5,7 @@
       <a href="#news">News</a>
       <a href="#contact">Contact</a>
       <a href="#about">About</a>
-      <a router-link to="/" class="navbar, active">Home</router-link>
+      <router-link to="/" class="navbar, active">Home</router-link>
       <router-link to="/" class="navbar">Week</router-link>
       <router-link to="/" class="navbar">Month</router-link>
       <router-link to="/" class="navbar">Other</router-link>
