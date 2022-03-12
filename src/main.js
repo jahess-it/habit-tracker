@@ -42,8 +42,8 @@ const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/", component: Home, beforeEnter: checkAuth },
-    { //path: "/week", component: Week, beforeEnter: checkAuth },
-    { //path: "/month", component: Month, beforeEnter: checkAuth },
+    //{ path: "/week", component: Week, beforeEnter: checkAuth },
+    //{ path: "/month", component: Month, beforeEnter: checkAuth },
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
