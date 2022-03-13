@@ -81,7 +81,8 @@ RETURNS TEXT AS
 CREATE OR REPLACE FUNCTION public.register(username VARCHAR(255), password VARCHAR(255),
         email VARCHAR(128), mobile_phone VARCHAR(18)) RETURNS VOID AS
     $$ INSERT INTO user_account (username, password_hash, email, mobile_phone, privilege_level)
-    VALUES (register.username, register.password, register.email, register.mobile_phone, 'b');
+    VALUES (register.username, crypt(register.password, gen_salt('bf', 8)),
+            register.email, register.mobile_phone, 'b');
     $$
     LANGUAGE SQL SECURITY DEFINER;
 
@@ -91,7 +92,8 @@ CREATE OR REPLACE FUNCTION public.login(username VARCHAR(255), password VARCHAR(
       _jwt_token TEXT;
     BEGIN
       SELECT user_account.username FROM user_account
-      WHERE user_account.username = login.username AND user_account.password_hash = login.password
+      WHERE user_account.username = login.username
+      AND user_account.password_hash = crypt(login.password, user_account.password_hash)
       INTO _username;
       
       IF _username IS NULL THEN
