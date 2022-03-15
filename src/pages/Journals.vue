@@ -15,7 +15,7 @@
     </div>
     <div v-if="loading">Loading journals . . .</div>
     <ul v-else>
-      <div v-for="journal in journals" :key="String(journal.day)">>
+      <div v-for="journal in journals" :key="String(journal.day)">
         <Journal :journal="journal"></Journal>
       </div>
     </ul>
