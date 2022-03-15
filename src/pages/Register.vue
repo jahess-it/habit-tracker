@@ -61,7 +61,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <RouterLink :to="/login">Google</RouterLink>
+              <RouterLink :to="http://34.219.104.16:8080/login">Login</RouterLink>
               <span>Login</span>
         </button>
 
