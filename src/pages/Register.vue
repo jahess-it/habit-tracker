@@ -92,7 +92,7 @@ export default {
 
       Api.register(this.username, this.password, this.email, this.mobile_phone)
         .then(() => {
-          this.$router.push("/register");
+          this.$router.push("/login");
         })
         .catch((error) => {
           console.log(error);
