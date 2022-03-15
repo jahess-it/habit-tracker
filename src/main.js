@@ -10,6 +10,7 @@ import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Week from "./pages/Week";
 import Month from "./pages/Month";
+import Month from "./pages/Journal";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -44,6 +45,7 @@ const router = new VueRouter({
     { path: "/", component: Home, beforeEnter: checkAuth },
     { path: "/week", component: Week, beforeEnter: checkAuth },
     { path: "/month", component: Month, beforeEnter: checkAuth },
+    { path: "/journal", component: Journal, beforeEnter: checkAuth },
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
