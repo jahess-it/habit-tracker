@@ -12,12 +12,12 @@
     </div>
     
     <div>
-      <h2 style="text-align: center">Your Habbits</h2>
+      <h2 style="text-align: center">Your Habits</h2>
     </div>
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
-      <div v-for="habit in habits" :key="habit.habit_id">
-        <Habit :habit="habit"></Habit>
+      <div v-for="habits in habitss" :key="habits.habit_id">
+        <Habits :habits="habits"></Habits>
       </div>
     </ul>
     
