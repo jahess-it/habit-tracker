@@ -1,6 +1,6 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <p>{{this.habit.title}}
+    <p><b>{{this.habit.title}}</b>
     Time Spent: {{this.habit.time_spent}} <button type="button">Input Time</button>
     Habit Rating: {{this.habit.habit_rating}} <button type="button">Input Rating</button>
     </p>
