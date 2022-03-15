@@ -45,8 +45,10 @@ export default {
   name: "Home",
   data: function () {
     return {
-      loading: false,
-      habits: []
+      loading1: false,
+      loading2: false,
+      habits: [],
+      habitss: []
     };
   },
   created: function () {
