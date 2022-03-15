@@ -3,7 +3,7 @@
     <p><b>{{this.habit.title}}</b>
     Time Spent: {{this.habit.time_spent}} <button type="button">Input Time</button>
     Habit Rating: {{this.habit.habit_rating}} <button type="button">Input Rating</button>
-    Habit Rating: {{this.habit.day}}
+    Day: {{this.habit.day}}
     </p>
   </div>
 </template>
