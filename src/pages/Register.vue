@@ -56,12 +56,11 @@
         </div>
       </form>
 
-       <button class="btn btn-primary btn-block" :disabled="loading">
+       <button @click="goToLogin() class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <RouterLink :to='login'>Login</RouterLink>
               <span>Login</span>
         </button>
 
@@ -103,6 +102,9 @@ export default {
           this.loading = false;
         });
     },
+    goToLogin() {
+   this.$router.push('/login'); 
+      }
   },
 };
 </script>
