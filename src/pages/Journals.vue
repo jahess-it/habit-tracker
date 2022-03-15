@@ -4,7 +4,7 @@
       <a href="/">Home</a>
       <a href="/Week">Week</a>
       <a href="/Month">Month</a>
-      <a class="active" href="/Journal">Journal</a>
+      <a class="active" href="/Journals">Journals</a>
     </div>
     <br />
     <div>
@@ -16,7 +16,7 @@
     <div v-if="loading">Loading journals . . .</div>
     <ul v-else>
       <div v-for="journal in journals" :key="journal.day">
-        <Journals :journal="journal"></Journals>
+        <Journal :journal="journal"></Journal>
       </div>
     </ul>
   </div>
@@ -25,11 +25,11 @@
 <script>
 import Api from "../api";
 import { } from '../auth';
-import Journals from "../components/Journals.vue";
+import Journal from "../components/Journal.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
-  name: "Journal",
+  name: "Journals",
   data: function () {
     return {
       loading: false,
@@ -45,6 +45,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Journals }
+  components: { Journal }
 };
 </script>
