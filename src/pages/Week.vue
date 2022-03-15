@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="topnav">
-      <a href="/Home.vue">Home</a>
-      <a class="active" href="/">/Week</a>
-      <a href="/Month.vue">Month</a>
+      <a href="/">Home</a>
+      <a class="active" href="/Week">Week</a>
+      <a href="/Month">Month</a>
       <a href="/">Other</a>
     </div>
     <br />
