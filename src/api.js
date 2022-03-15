@@ -8,6 +8,10 @@ class Api {
     return axios.get(API_URL + "/articles", {})
   }
 
+  getAllHabits(username) {
+    return axios.get(`${API_URL}/habit?username=eq.${username}`);
+  }
+  
   getUpcomingHabits(username) {
     return axios.get(`${API_URL}/upcoming?username=eq.${username}`);
   }
