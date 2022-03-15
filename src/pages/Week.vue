@@ -10,6 +10,9 @@
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
     </div>
+    <div>
+      <h2 style="text-align: center">This Week</h2>
+    </div>
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
       <div v-for="habit in habits" :key="habit.habit_id">
