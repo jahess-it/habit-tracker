@@ -4,7 +4,7 @@
       <a href="/">Home</a>
       <a href="/Week">Week</a>
       <a href="/Month">Month</a>
-      <a class="active" href="/">Journal</a>
+      <a class="active" href="/Journal">Journal</a>
     </div>
     <br />
     <div>
