@@ -37,7 +37,7 @@ export default {
     this.loading = true;
     this.token = getJwtToken();
     this.username = getUserIdFromToken(this.token);
-    Api.getUpcomingHabits(this.username).then((res) => {
+    Api.getWeekView(this.username).then((res) => {
       this.habits = res.data;
       this.loading = false;
     });
