@@ -16,8 +16,8 @@
     </div>
     <div v-if="loading1">Loading habits . . .</div>
     <ul v-else>
-      <div v-for="habits in habitss" :key="habits.habit_id">
-        <Habits :habits="habits"></Habits>
+      <div v-for="habit in habitss" :key="habit.habit_id">
+        <Habits :habit="habit"></Habits>
       </div>
     </ul>
     
