@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: #ADD8E6">
-    <p>{{this.habit.title}}
+    <p><b>{{this.habit.title}}</b>
     Description: {{this.habit.description}}
     Timed: {{this.habit.timed}}
     Ratable: {{this.habit.ratable}}
