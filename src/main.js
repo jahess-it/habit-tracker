@@ -10,7 +10,7 @@ import Logout from "./pages/Logout";
 import Register from "./pages/Register";
 import Week from "./pages/Week";
 import Month from "./pages/Month";
-import Month from "./pages/Journal";
+import Journal from "./pages/Journal";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
