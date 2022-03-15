@@ -50,7 +50,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Sign Up</span>
+              <span>Register</span>
             </button>
           </div>
         </div>
@@ -61,7 +61,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Login</span>
+              <span>Login Page</span>
         </button>
 
       <div v-if="message" class="alert alert-danger">
