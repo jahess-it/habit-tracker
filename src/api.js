@@ -24,7 +24,7 @@ class Api {
     return axios.get(`${API_URL}/month?username=eq.${username}`);
   }
 
-  getJournals(username, day) {
+  getJournals(username) {
     return axios.get(`${API_URL}/journal?username=eq.${username}`); //&day=eq.${day}`);
   }
 
