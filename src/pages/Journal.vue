@@ -40,7 +40,7 @@ export default {
     this.loading = true;
     this.token = getJwtToken();
     this.username = getUserIdFromToken(this.token);
-    Api.getJournal(this.username).then((res) => {
+    Api.getJournals(this.username).then((res) => {
       this.journals = res.data;
       this.loading = false;
     });
