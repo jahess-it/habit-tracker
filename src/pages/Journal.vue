@@ -45,6 +45,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Journal }
+  components: { Journals }
 };
 </script>
