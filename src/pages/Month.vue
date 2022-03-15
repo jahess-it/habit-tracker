@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="topnav">
-      <a href="/Home.vue">Home</a>
-      <a href="/Week.vue">/Week</a>
-      <a class="active" href="/">Month</a>
+      <a href="/">Home</a>
+      <a href="/Week">Week</a>
+      <a class="active" href="/Month">Month</a>
       <a href="/">Other</a>
     </div>
     <br />
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
+    </div>
+    <div>
+      <h2 style="text-align: center">This Week</h2>
     </div>
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
@@ -37,7 +40,7 @@ export default {
     this.loading = true;
     this.token = getJwtToken();
     this.username = getUserIdFromToken(this.token);
-    Api.getUpcomingHabits(this.username).then((res) => {
+    Api.getMonthView(this.username).then((res) => {
       this.habits = res.data;
       this.loading = false;
     });
