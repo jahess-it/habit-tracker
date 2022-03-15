@@ -16,7 +16,7 @@
     <div v-if="loading">Loading journals . . .</div>
     <ul v-else>
       <div v-for="journal in journals" :key="journal.day">
-        <Journal :journal="journal"></Journal>
+        <Journals :journal="journal"></Journals>
       </div>
     </ul>
   </div>
@@ -25,7 +25,7 @@
 <script>
 import Api from "../api";
 import { } from '../auth';
-import Journal from "../components/Journal.vue";
+import Journals from "../components/Journals.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
