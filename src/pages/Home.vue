@@ -58,7 +58,7 @@ export default {
       this.loading = false;
     });
     Api.getAllHabits(this.username).then((res) => {
-      this.habits = res.data;
+      this.habitss = res.data;
       this.loading = false;
     });
   },
