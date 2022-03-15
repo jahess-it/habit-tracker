@@ -56,7 +56,7 @@
         </div>
       </form>
 
-       <button @click="goToLogin() class="btn btn-primary btn-block" :disabled="loading">
+       <button @click="goToLogin()" class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
