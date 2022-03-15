@@ -4,7 +4,7 @@
     Description: {{this.habit.description}}
     Timed: {{this.habit.timed}}
     Ratable: {{this.habit.ratable}}
-    category_name: {{this.habit.category_name}}
+    Category Name: {{this.habit.category_name}}
     </p>
   </div>
 </template>
