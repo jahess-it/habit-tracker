@@ -56,6 +56,15 @@
         </div>
       </form>
 
+       <button class="btn btn-primary btn-block" :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              <RouterLink :to='login'>Google</RouterLink>
+              <span>Login</span>
+        </button>
+
       <div v-if="message" class="alert alert-danger">
         {{ message }}
       </div>
