@@ -14,7 +14,7 @@
     <div>
       <h2 style="text-align: center">Your Habits</h2>
     </div>
-    <div v-if="loading">Loading habits . . .</div>
+    <div v-if="loading1">Loading habits . . .</div>
     <ul v-else>
       <div v-for="habits in habitss" :key="habits.habit_id">
         <Habits :habits="habits"></Habits>
@@ -24,7 +24,7 @@
     <div>
       <h2 style="text-align: center">Upcoming Habits</h2>
     </div>
-    <div v-if="loading">Loading habits . . .</div>
+    <div v-if="loading2">Loading habits . . .</div>
     <ul v-else>
       <div v-for="habit in habits" :key="habit.habit_id">
         <Habit :habit="habit"></Habit>
@@ -50,16 +50,17 @@ export default {
     };
   },
   created: function () {
-    this.loading = true;
+    this.loading1 = true;
+    this.loading2 = true;
     this.token = getJwtToken();
     this.username = getUserIdFromToken(this.token);
     Api.getUpcomingHabits(this.username).then((res) => {
       this.habits = res.data;
-      this.loading = false;
+      this.loading2 = false;
     });
     Api.getAllHabits(this.username).then((res) => {
       this.habitss = res.data;
-      this.loading = false;
+      this.loading1 = false;
     });
   },
   components: { Habit, Habits }
