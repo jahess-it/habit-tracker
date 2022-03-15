@@ -40,6 +40,14 @@
           </div>
         </div>
       </form>
+      
+      <button @click="goToRegister()" class="btn btn-primary btn-block" :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              <span>Register</span>
+        </button>
     </div>
   </div>
 </template>
@@ -79,6 +87,9 @@ export default {
           this.loading = false;
         });
     },
+    goToRegister() {
+   this.$router.push('/login'); 
+      }
   },
 };
 </script>
