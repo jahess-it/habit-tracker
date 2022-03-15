@@ -10,9 +10,9 @@
 
 <script>
   export default {
-    name: "journal",
+    name: "journals",
     props: {
-      journal: Object
+      journals: Object
     },
     data: function () {
       return {};
