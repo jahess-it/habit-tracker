@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="background-color: #ADD8E6">
     <p>{{this.habit.title}}
     Description: {{this.habit.description}}
     Timed: {{this.habit.timed}}
