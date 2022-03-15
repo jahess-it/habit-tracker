@@ -24,8 +24,8 @@ class Api {
     return axios.get(`${API_URL}/month?username=eq.${username}`);
   }
 
-  getJournal(username, day) {
-    return axios.get(`${API_URL}/journal?username=eq.${username}&day=eq.${day}`);
+  getJournals(username, day) {
+    return axios.get(`${API_URL}/journal?username=eq.${username}`); //&day=eq.${day}`);
   }
 
   getArticleDetail(id) {
