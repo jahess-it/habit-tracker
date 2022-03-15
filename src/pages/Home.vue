@@ -10,6 +10,20 @@
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
     </div>
+    
+    <div>
+      <h2 style="text-align: center">Your Habbits</h2>
+    </div>
+    <div v-if="loading">Loading habits . . .</div>
+    <ul v-else>
+      <div v-for="habit in habits" :key="habit.habit_id">
+        <Habit :habit="habit"></Habit>
+      </div>
+    </ul>
+    
+    <div>
+      <h2 style="text-align: center">Upcoming Habits</h2>
+    </div>
     <div v-if="loading">Loading habits . . .</div>
     <ul v-else>
       <div v-for="habit in habits" :key="habit.habit_id">
@@ -23,6 +37,7 @@
 import Api from "../api";
 import { } from '../auth';
 import Habit from "../components/Habit.vue";
+import Habits from "../components/Habits.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 
@@ -42,7 +57,11 @@ export default {
       this.habits = res.data;
       this.loading = false;
     });
+    Api.getAllHabits(this.username).then((res) => {
+      this.habits = res.data;
+      this.loading = false;
+    });
   },
-  components: { Habit }
+  components: { Habit, Habits }
 };
 </script>
