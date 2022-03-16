@@ -15,19 +15,7 @@
     <div>
       <h2 style="text-align: center">Your Account</h2>
     </div>
-    <div v-if="loading">Loading account . . .</div>
-    <div v-else>
-      <p>
-      Username: {{this.account.username}}
-      </p>
-      <p>
-      Email: {{this.account.email}} <button type="button">Change Email</button>
-      </p>
-      Mobile Phone: {{this.account.mobile_phone}} <button type="button">Change Number</button>
-      <p>
-      <button type="button">Change Password</button>
-      </p>
-    </div>
+    <div v-if="loading">Loading Account . . .</div>
     <div v-else>
     <div v-for="account in accounts" :key="account.username">
       <Accounts :account="account"></Accounts>
