@@ -59,7 +59,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.createHabit({ title: this.title, content: this.content })
+      Api.addHabit({ title: this.title, content: this.content })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
