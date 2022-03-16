@@ -1,5 +1,6 @@
 <template>
-  <Navbar location="account"></Navbar>
+  <div>
+    <Navbar location="account"></Navbar>
     <br />
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
