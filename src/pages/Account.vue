@@ -34,7 +34,6 @@
 <script>
 import Api from "../api";
 import { } from '../auth';
-import Journal from "../components/Journal.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
@@ -54,6 +53,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Account }
+  components: { }
 };
 </script>
