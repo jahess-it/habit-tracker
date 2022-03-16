@@ -5,6 +5,8 @@
       <a href="/Week">Week</a>
       <a href="/Month">Month</a>
       <a href="/Journals">Journals</a>
+      <a style="float:right" href="/Account">Account</a>
+      <a style="float:right" href="/logout">Logout</a>
     </div>
     <br />
     <div>
