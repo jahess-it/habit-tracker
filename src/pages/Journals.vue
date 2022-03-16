@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div class="topnav">
-      <a href="/">Home</a>
-      <a href="/Week">Week</a>
-      <a href="/Month">Month</a>
-      <a class="active" href="/Journals">Journals</a>
-      <a style="float:right" href="/logout">Logout</a>
-      <a style="float:right" href="/Account">Account</a>
-    </div>
+    <Navbar location="journals"></Navbar>
     <br />
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
@@ -28,6 +21,7 @@
 import Api from "../api";
 import { } from '../auth';
 import Journal from "../components/Journal.vue";
+import Navbar from "../components/Navbar.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
@@ -47,6 +41,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Journal }
+  components: { Journal, Navbar }
 };
 </script>
