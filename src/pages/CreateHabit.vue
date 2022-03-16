@@ -37,5 +37,6 @@ export default {
     });
   },
   components: { Habit }
+  components: {HabitCreator}
 };
 </script>
