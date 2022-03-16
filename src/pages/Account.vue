@@ -17,7 +17,6 @@
     </div>
     <div v-if="loading">Loading account . . .</div>
     <div v-else>
-    <Account :account="account">
       <p>
       Username: {{this.account.username}}
       </p>
@@ -28,7 +27,6 @@
       <p>
       <button type="button">Change Password</button>
       </p>
-    </Account>
     </div>
   </div>
 </template>
@@ -40,10 +38,12 @@ import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
   name: "Account",
+  props: {
+      account: Object
+    },
   data: function () {
     return {
-      loading: false,
-      account: []
+      loading: false
     };
   },
   created: function () {
@@ -55,6 +55,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { Account }
+  components: { }
 };
 </script>
