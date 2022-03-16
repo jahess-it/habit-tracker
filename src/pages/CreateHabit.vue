@@ -14,7 +14,7 @@
 <script>
 import Api from "../api";
 import { } from '../auth';
-import CreateHabit from "../components/CreateHabit.vue";
+import HabitCreator from "../components/HabitCreator.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
