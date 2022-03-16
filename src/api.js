@@ -36,7 +36,7 @@ class Api {
     return axios.post(
       API_URL + "/habit",
       {
-        ...article,
+        ...habit,
         // add user id from JWT token
         username: getUserIdFromToken(getJwtToken()),
       },
