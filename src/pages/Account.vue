@@ -38,12 +38,10 @@ import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
   name: "Account",
-  props: {
-      account: Object
-    },
   data: function () {
     return {
-      loading: false
+      loading: false,
+      account: Object
     };
   },
   created: function () {
