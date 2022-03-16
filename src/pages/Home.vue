@@ -27,11 +27,11 @@
       <h2 style="text-align: center">Upcoming Habits</h2>
     </div>
     <div v-if="loading2">Loading habits . . .</div>
-    <ul v-else>
+    <div v-else>
       <div v-for="habit in habits" :key="habit.habit_id">
         <Habit :habit="habit"></Habit>
       </div>
-    </ul>
+    </div>
   </div>
 </template>
 
