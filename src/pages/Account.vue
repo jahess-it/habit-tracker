@@ -20,7 +20,7 @@
 import Api from "../api";
 import { } from '../auth';
 import Accounts from "../components/Accounts.vue";
-import Navbar from "../components/Navbar.vue"
+import Navbar from "../components/Navbar.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
