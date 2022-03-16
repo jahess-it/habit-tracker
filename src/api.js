@@ -32,9 +32,37 @@ class Api {
     return axios.get(`${API_URL}/user_account?username=eq.${username}`);
   }
 
-  getArticleDetail(id) {
-    return axios.get(API_URL + `/articles?articleid=eq.${id}`);
+  addHabit(habit) {
+    return axios.post(
+      API_URL + "/habit",
+      {
+        ...article,
+        // add user id from JWT token
+        username: getUserIdFromToken(getJwtToken()),
+      },
+      {
+        headers: authHeader(),
+      }
+    );
   }
+
+  updateHabit(habit) {
+    return axios.patch(
+      API_URL + `/habit?username=eq.${habit.habit_id}`,
+      article,
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+  
+  deleteHabit(id) {
+    return axios.delete(API_URL + `/habit?habit_id=eq.${id}`, {
+      headers: authHeader(),
+    });
+  }
+  
+ 
 
   addArticle(article) {
     return axios.post(
