@@ -5,6 +5,7 @@
       <a href="/Week">Week</a>
       <a href="/Month">Month</a>
       <a href="/Journals">Journals</a>
+      <a href="/Create_habit">Create Habit</a>
       <a style="float:right" href="/logout">Logout</a>
       <a style="float:right" href="/Account">Account</a>
     </div>
