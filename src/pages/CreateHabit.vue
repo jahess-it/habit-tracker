@@ -20,22 +20,6 @@ import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
-  name: "Week",
-  data: function () {
-    return {
-      loading: false,
-      habits: []
-    };
-  },
-  created: function () {
-    this.loading = true;
-    this.token = getJwtToken();
-    this.username = getUserIdFromToken(this.token);
-    Api.getWeekView(this.username).then((res) => {
-      this.habits = res.data;
-      this.loading = false;
-    });
-  },
-  components: { Habit }
+  
 };
 </script>
