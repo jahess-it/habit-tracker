@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-breadcrumb>
-      <b-breadcrumb-item active>Create Habit</b-breadcrumb-item>
+      <b-breadcrumb-item active>Habit Creator</b-breadcrumb-item>
     </b-breadcrumb>
     <div class="card card-container p-4">
       <form name="form" @submit.prevent="handleAdd">
@@ -46,7 +46,7 @@
 <script>
 import Api from "../api";
 export default {
-  name: "CreateHabit",
+  name: "HabitCreator",
   data() {
     return {
       title: "",
