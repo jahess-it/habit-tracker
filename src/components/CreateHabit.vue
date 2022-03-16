@@ -46,7 +46,7 @@
 <script>
 import Api from "../api";
 export default {
-  name: "Create_Habit",
+  name: "CreateHabit",
   data() {
     return {
       title: "",
@@ -59,7 +59,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addHabit({ title: this.title, content: this.content })
+      Api.createHabit({ title: this.title, content: this.content })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
