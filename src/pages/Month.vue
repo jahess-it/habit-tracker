@@ -5,6 +5,8 @@
       <a href="/Week">Week</a>
       <a class="active" href="/Month">Month</a>
       <a href="/Journals">Journals</a>
+      <a style="float:right" href="/logout">Logout</a>
+      <a style="float:right" href="/Account">Account</a>
     </div>
     <br />
     <div>
@@ -14,11 +16,11 @@
       <h2 style="text-align: center">This Week</h2>
     </div>
     <div v-if="loading">Loading habits . . .</div>
-    <ul v-else>
+    <div v-else>
       <div v-for="habit in habits" :key="habit.habit_id">
         <Habit :habit="habit"></Habit>
       </div>
-    </ul>
+    </div>
   </div>
 </template>
 
