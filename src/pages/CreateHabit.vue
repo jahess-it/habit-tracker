@@ -2,9 +2,10 @@
   <div>
     <div class="topnav">
       <a href="/">Home</a>
-      <a class="active" href="/Week">Week</a>
+      <a href="/Week">Week</a>
       <a href="/Month">Month</a>
-      <a href="/Journals">Journals</a>
+      <a href="/Journals">Journals</a>      
+      <a class="active" href="/CreateHabit">Create Habit</a>
       <a style="float:right" href="/logout">Logout</a>
       <a style="float:right" href="/Account">Account</a>
     </div>
