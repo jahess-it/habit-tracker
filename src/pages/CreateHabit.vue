@@ -8,26 +8,13 @@
       <a style="float:right" href="/logout">Logout</a>
       <a style="float:right" href="/Account">Account</a>
     </div>
-    <br />
-    <div>
-      <h1 style="text-align: center">Habit Tracker</h1>
-    </div>
-    <div>
-      <h2 style="text-align: center">This Week</h2>
-    </div>
-    <div v-if="loading">Loading habits . . .</div>
-    <div v-else>
-      <div v-for="habit in habits" :key="habit.habit_id">
-        <Habit :habit="habit"></Habit>
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
 import Api from "../api";
 import { } from '../auth';
-import Habit from "../components/Habit.vue";
+import CreateHabit from "../components/CreateHabit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
