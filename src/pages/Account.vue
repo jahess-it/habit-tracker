@@ -28,12 +28,18 @@
       <button type="button">Change Password</button>
       </p>
     </div>
+    <div v-else>
+    <div v-for="account in accounts" :key="account.username">
+      <Accounts :account="account"></Accounts>
+    </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Api from "../api";
 import { } from '../auth';
+import Accounts from "../components/Accounts.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
@@ -41,7 +47,7 @@ export default {
   data: function () {
     return {
       loading: false,
-      account: Object
+      accounts: []
     };
   },
   created: function () {
@@ -49,10 +55,10 @@ export default {
     this.token = getJwtToken();
     this.username = getUserIdFromToken(this.token);
     Api.getAccount(this.username).then((res) => {
-      this.account = res.data;
+      this.accounts = res.data;
       this.loading = false;
     });
   },
-  components: { }
+  components: { Accounts }
 };
 </script>
