@@ -17,6 +17,7 @@
     </div>
     <div v-if="loading">Loading account . . .</div>
     <div v-else>
+    <Account :account="account">
       <p>
       Username: {{this.account.username}}
       </p>
@@ -27,6 +28,7 @@
       <p>
       <button type="button">Change Password</button>
       </p>
+    </Account>
     </div>
   </div>
 </template>
@@ -53,6 +55,6 @@ export default {
       this.loading = false;
     });
   },
-  components: { }
+  components: { Account }
 };
 </script>
