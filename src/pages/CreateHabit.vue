@@ -15,6 +15,7 @@
 import Api from "../api";
 import { } from '../auth';
 import HabitCreator from "../components/HabitCreator.vue";
+import Habit from "../components/Habit.vue";
 import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 export default {
