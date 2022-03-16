@@ -17,11 +17,11 @@
       <h2 style="text-align: center">Your Habits</h2>
     </div>
     <div v-if="loading1">Loading habits . . .</div>
-    <ul v-else>
+    <div v-else>
       <div v-for="habit in habitss" :key="habit.habit_id">
         <Habits :habit="habit"></Habits>
       </div>
-    </ul>
+    </div>
     
     <div>
       <h2 style="text-align: center">Upcoming Habits</h2>
