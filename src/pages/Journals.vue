@@ -5,6 +5,8 @@
       <a href="/Week">Week</a>
       <a href="/Month">Month</a>
       <a class="active" href="/Journals">Journals</a>
+      <a style="float:right" href="/logout">Logout</a>
+      <a style="float:right" href="/Account">Account</a>
     </div>
     <br />
     <div>
@@ -14,11 +16,11 @@
       <h2 style="text-align: center">Your Journal</h2>
     </div>
     <div v-if="loading">Loading journals . . .</div>
-    <ul v-else>
+    <div v-else>
       <div v-for="journal in journals" :key="String(journal.day)">
         <Journal :journal="journal"></Journal>
       </div>
-    </ul>
+    </div>
   </div>
 </template>
 
