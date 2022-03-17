@@ -4,46 +4,45 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="habitname">Habit Name</label>
+            <label for="title">Habit Name</label>
             <input
-              v-model="charname"
+              v-model="title"
               type="text"
               class="form-control"
               name="title"
             />
           </div>
           <div class="form-group">
-            <label for="habitname">Habit Category</label>
+            <label for="category_name">Habit Category</label>
             <input
-              v-model="charname"
+              v-model="category_name"
               type="text"
               class="form-control"
-              name="title"
+              name="category_name"
             />
           </div>
           <div class="form-group">
-            <label for="habitname">Description (Optional)</label>
+            <label for="description">Description (Optional)</label>
             <input
-              v-model="charname"
+              v-model="description"
               type="text"
               class="form-control"
-              name="title"
+              name="description"
             />
           </div>
           <div class="form-group">
-            <label class="radio" :for="id">
+            <label class="radio" for="timed">
               <input
-                type="radio"
-                :id="id"
-                class="radio-button"
-                :value="value"
-                :name="name"
+              v-model="timed"
+              type="radio"
+              class="radio-button"
+              name="timed"
               />
               Timed
             </label>
           </div>
           <div class="form-group">
-            <label class="radio" :for="id">
+            <label class="radio" for="ratable">
               <input
                 type="radio"
                 :id="id"
@@ -53,60 +52,6 @@
               />
               Ratable
             </label>
-          </div>
-
-          <div>
-            <label for="habitname">Schedule for these dates:</label>
-              <v-row>
-                <v-col cols="12" sm="6">
-                  <v-date-picker v-model="dates" multiple></v-date-picker>
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-menu
-                    ref="menu"
-                    v-model="menu"
-                    :close-on-content-click="false"
-                    :return-value.sync="dates"
-                    transition="scale-transition"
-                    offset-y
-                    min-width="auto"
-                  >
-                    <template v-slot:activator="{ on, attrs }">
-                      <v-combobox
-                        v-model="dates"
-                        multiple
-                        chips
-                        small-chips
-                        label="Multiple picker in menu"
-                        prepend-icon="mdi-calendar"
-                        readonly
-                        v-bind="attrs"
-                        v-on="on"
-                      ></v-combobox>
-                    </template>
-                    <v-date-picker v-model="dates" multiple no-title scrollable>
-                      <v-spacer></v-spacer>
-                      <v-btn text color="primary" @click="menu = false">
-                        Cancel
-                      </v-btn>
-                      <v-btn
-                        text
-                        color="primary"
-                        @click="$refs.menu.save(dates)"
-                      >
-                        OK
-                      </v-btn>
-                    </v-date-picker>
-                  </v-menu>
-                </v-col>
-              </v-row>
-            </template>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
           </div>
 
           <div class="form-group">
