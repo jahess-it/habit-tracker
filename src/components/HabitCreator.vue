@@ -34,16 +34,18 @@
               name="title"
             />
           </div>
-          <label class="radio" :for="id">
-            <input
-              type="radio"
-              :id="id"
-              class="radio-button"
-              :value="value"
-              :name="name"
-            />
-            Timed
-          </label>
+          <div class="form-group">
+            <label class="radio" :for="id">
+              <input
+                type="radio"
+                :id="id"
+                class="radio-button"
+                :value="value"
+                :name="name"
+              />
+              Timed
+            </label>
+          </div>
 
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
