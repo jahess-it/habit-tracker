@@ -162,7 +162,7 @@ export default {
 };
 </script>
 <script>
-Vue.use(Vuetify);
+
 export default {
   data: () => ({
     dates: ["2018-09-15", "2018-09-20"],
