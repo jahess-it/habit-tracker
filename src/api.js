@@ -46,6 +46,20 @@ class Api {
     );
   }
 
+  addCategory(category) {
+    return axios.post(
+      API_URL + "/category",
+      {
+        ...category,
+        // add user id from JWT token
+        username: getUserIdFromToken(getJwtToken()),
+      },
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
   updateHabit(habit) {
     return axios.patch(
       API_URL + `/habit?username=eq.${habit.habit_id}`,
