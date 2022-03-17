@@ -17,23 +17,36 @@
             />
           </div>
           <div class="form-group">
-            <label for="optionalhabitdescription">Habit Description (Optional)</label>
-            <textarea
-              v-model="charlevel"
+            <label for="habitname">Habit Category (Optional)</label>
+            <input
+              v-model="charname"
               type="text"
               class="form-control"
-              name="description"
+              name="title"
             />
           </div>
           <div class="form-group">
-            <label for="habitcategory">Habit Category</label>
-            <textarea
-              v-model="charfeat"
+            <label for="habitname">Description (Optional)</label>
+            <input
+              v-model="charname"
               type="text"
               class="form-control"
-              name="category_name"
+              name="title"
             />
           </div>
+          <label class="radio" :for="id">
+            <input
+              type="radio"
+              :id="id"
+              class="radio-button"
+              :value="value"
+              :name="name"
+            />
+            <span class="radio-circle"> </span>
+            <span class="radio-circle__inner"> </span>
+            <span class="radio-button__label">{{ Timed }}</span>
+          </label>
+
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
