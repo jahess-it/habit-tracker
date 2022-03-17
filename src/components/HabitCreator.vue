@@ -60,20 +60,8 @@
           </div>
 
           <div>
-            <label for="habitname">Repeat every</label> 
-            <b-dropdown id="dropdown-1" text="Dropdown Button" class="m-md-2">
-              <b-dropdown-item>1</b-dropdown-item>
-              <b-dropdown-item>2</b-dropdown-item>
-              <b-dropdown-item>3</b-dropdown-item>
-              <b-dropdown-item>4</b-dropdown-item>
-              <b-dropdown-item>5</b-dropdown-item>
-              <b-dropdown-item>6</b-dropdown-item>
-              <b-dropdown-item>7</b-dropdown-item>
-              <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item active>Active action</b-dropdown-item>
-              <b-dropdown-item disabled>Disabled action</b-dropdown-item>
-            </b-dropdown>
-            <label for="habitname">days</label> 
+            <label for="habitname">Schedule for these dates:</label> 
+            <v-date-picker></v-date-picker>
           </div>
 
           <div class="form-group">
