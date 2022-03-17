@@ -17,9 +17,10 @@
             />
           </div>
           <div class="form-group">
-            <label for="optionalhabitdescription">Optional Habit Description</label>
+            <label for="optionalhabitdescription">Habit Description (Optional)</label>
             <textarea
               v-model="charlevel"
+              type="text"
               class="form-control"
               name="description"
             />
@@ -28,6 +29,7 @@
             <label for="habitcategory">Habit Category</label>
             <textarea
               v-model="charfeat"
+              type="text"
               class="form-control"
               name="category_name"
             />
