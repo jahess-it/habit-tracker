@@ -5,6 +5,7 @@
     <a :class="{ active: location == 'month' }" href="/month">Month</a>
     <a :class="{ active: location == 'journals' }" href="/journals">Journals</a>
     <a :class="{ active: location == 'createhabit' }" href="/createhabit">Create Habit</a>
+    <a :class="{ active: location == 'createcategory' }" href="/createcategory">Create Category</a>
     <a :class="{ active: location == 'logout' }" style="float:right" href="/logout">Logout</a>
     <a :class="{ active: location == 'account' }" style="float:right" href="/account">Account</a>
     <a :class="{ active: location == 'admin' }" style="float:right" href="/admin">Admin</a>
