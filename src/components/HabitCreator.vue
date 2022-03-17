@@ -1,27 +1,35 @@
 <template>
   <div>
     <b-breadcrumb>
-      <b-breadcrumb-item active>Habit Creator</b-breadcrumb-item>
+      <b-breadcrumb-item to="/"> Habits </b-breadcrumb-item>
+      <b-breadcrumb-item active>Add Habit</b-breadcrumb-item>
     </b-breadcrumb>
     <div class="card card-container p-4">
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="username">Title</label>
+            <label for="habitname">Habit Name</label>
             <input
-              v-model="title"
+              v-model="charname"
               type="text"
               class="form-control"
               name="title"
             />
           </div>
           <div class="form-group">
-            <label for="content">content</label>
+            <label for="optionalhabitdescription">Optional Habit Description</label>
             <textarea
-              v-model="content"
+              v-model="charlevel"
               class="form-control"
-              name="content"
-              rows="20"
+              name="description"
+            />
+          </div>
+          <div class="form-group">
+            <label for="habitcategory">Habit Category</label>
+            <textarea
+              v-model="charfeat"
+              class="form-control"
+              name="category_name"
             />
           </div>
           <div class="form-group">
@@ -45,6 +53,7 @@
 
 <script>
 import Api from "../api";
+
 export default {
   name: "HabitCreator",
   data() {
