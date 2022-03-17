@@ -57,7 +57,6 @@
 
           <div>
             <label for="habitname">Schedule for these dates:</label>
-            <template>
               <v-row>
                 <v-col cols="12" sm="6">
                   <v-date-picker v-model="dates" multiple></v-date-picker>
@@ -107,7 +106,7 @@
       </form>
     </div>
   </div>
-</template>
+
           </div>
 
           <div class="form-group">
@@ -163,10 +162,11 @@ export default {
 };
 </script>
 <script>
-  export default {
-    data: () => ({
-      dates: ['2018-09-15', '2018-09-20'],
-      menu: false,
-    }),
-  }
+Vue.use(Vuetify);
+export default {
+  data: () => ({
+    dates: ["2018-09-15", "2018-09-20"],
+    menu: false,
+  }),
+};
 </script>
