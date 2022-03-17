@@ -47,8 +47,8 @@ export default {
   name: "CategoryCreator",
   data() {
     return {
-      title: "",
-      content: "",
+      category_name: "",
+      display_color: "",
       loading: false,
       message: "",
     };
@@ -57,7 +57,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addCategory({ title: this.title, content: this.content })
+      Api.addCategory({ category_name: this.category_name, display_color: this.display_color })
         .then(() => {
           this.loading = false;
           this.$router.push("/");

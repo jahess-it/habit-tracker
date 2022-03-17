@@ -46,13 +46,13 @@ class Api {
     );
   }
 
-  addCategory(category) {
+  addCategory(category_name, display_color) {
     return axios.post(
       API_URL + "/category",
-      {
-        ...category,
-        // add user id from JWT token
+      {category_name, 
+      
         username: getUserIdFromToken(getJwtToken()),
+        display_color
       },
       {
         headers: authHeader(),
