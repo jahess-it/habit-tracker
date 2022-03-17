@@ -42,9 +42,7 @@
               :value="value"
               :name="name"
             />
-            <span class="radio-circle"> </span>
-            <span class="radio-circle__inner"> </span>
-            <span class="radio-button__label">{{ Timed }}</span>
+            Timed
           </label>
 
           <div class="form-group">
