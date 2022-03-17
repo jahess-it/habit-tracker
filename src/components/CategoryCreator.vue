@@ -60,7 +60,7 @@ export default {
       Api.addCategory({ title: this.title, content: this.content })
         .then(() => {
           this.loading = false;
-          this.$router.push("/admin/");
+          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);
