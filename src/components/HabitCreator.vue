@@ -57,6 +57,7 @@
 
           <div>
             <label for="habitname">Schedule for these dates:</label>
+            <template>
               <v-row>
                 <v-col cols="12" sm="6">
                   <v-date-picker v-model="dates" multiple></v-date-picker>
@@ -106,6 +107,7 @@
       </form>
     </div>
   </div>
+</template>
           </div>
 
           <div class="form-group">
