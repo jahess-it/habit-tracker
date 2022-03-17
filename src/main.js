@@ -13,6 +13,7 @@ import Month from "./pages/Month";
 import Journals from "./pages/Journals";
 import Account from "./pages/Account";
 import CreateHabit from "./pages/CreateHabit";
+import CreateCategory from "./pages/CreateCategory";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -50,6 +51,7 @@ const router = new VueRouter({
     { path: "/journals", component: Journals, beforeEnter: checkAuth },
     { path: "/account", component: Account, beforeEnter: checkAuth },
     { path: "/createhabit", component: CreateHabit, beforeEnter: checkAuth },
+    { path: "/createcategory", component: CreateCategory, beforeEnter: checkAuth },
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
