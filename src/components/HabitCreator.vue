@@ -1,9 +1,5 @@
 <template>
   <div>
-    <b-breadcrumb>
-      <b-breadcrumb-item to="/"> Habits </b-breadcrumb-item>
-      <b-breadcrumb-item active>Add Habit</b-breadcrumb-item>
-    </b-breadcrumb>
     <div class="card card-container p-4">
       <form name="form" @submit.prevent="handleAdd">
         <div>
@@ -17,7 +13,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="habitname">Habit Category (Optional)</label>
+            <label for="habitname">Habit Category</label>
             <input
               v-model="charname"
               type="text"
