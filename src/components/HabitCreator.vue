@@ -31,20 +31,10 @@
             />
           </div>
           <div class="form-group">
-            <Checkbox
-              v-model="timed"
-              name="timed"
-              text="timed"
-            />
+            <Checkbox v-model="timed" name="timed" text="timed" />
           </div>
           <div class="form-group">
-            <label for="ratable">Ratable</label>
-            <input
-              v-model="ratable"
-              type="text"
-              class="form-control"
-              name="ratable"
-            />
+            <Checkbox v-model="ratable" name="ratable" text="ratable" />
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -75,7 +65,7 @@ export default {
   data() {
     return {
       timed: false,
-      ratable: "",
+      ratable: false,
       title: "",
       category_name: "",
       description: "",
