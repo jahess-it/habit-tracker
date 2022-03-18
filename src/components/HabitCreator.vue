@@ -30,7 +30,25 @@
               name="description"
             />
           </div>
+                    <div class="form-group">
+            <label for="timed">Timed</label>
+            <input
+              v-model="timed"
+              type="text"
+              class="form-control"
+              name="timed"
+            />
+          </div>
           <div class="form-group">
+            <label for="ratable">ratable</label>
+            <input
+              v-model="ratable"
+              type="text"
+              class="form-control"
+              name="ratable"
+            />
+          </div>
+          <!-- <div class="form-group">
             <label class="checkbox" for="timed">
               <input
               v-model="timed"
@@ -52,7 +70,7 @@
               />
               Ratable
             </label>
-          </div>
+          </div> -->
 
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -80,8 +98,8 @@ export default {
   name: "HabitCreator",
   data() {
     return {
-      timed: '',
-      ratable: '',
+      timed: "",
+      ratable: "",
       title: "",
       category_name: "",
       description: "",
