@@ -100,11 +100,11 @@ CREATE OR REPLACE FUNCTION public.login(username VARCHAR(255), password VARCHAR(
 	RAISE invalid_password USING message = 'incorrect username or password';
       END IF;
       
-      SELECT sign(row_to_json(admins), current_setting('app.settings.jwt_secret')) AS token
+      SELECT sign(row_to_json(users), current_setting('app.settings.jwt_secret')) AS token
       FROM (
-        SELECT 'admins' AS role, _username,
-       	        EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*60*60 AS exp
-      ) admins
+        SELECT privilege_level AS role, _username,
+       	        EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*24 AS exp
+      ) users
       INTO _jwt_token;
 
       RETURN _jwt_token;
