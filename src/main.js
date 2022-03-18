@@ -16,7 +16,6 @@ import CreateHabit from "./pages/CreateHabit";
 import ScheduleHabit from "./pages/ScheduleHabit";
 import CreateCategory from "./pages/CreateCategory";
 import AdminArticleAdd from "./components/AdminArticleAdd";
-import Checkbox from "./components/Checkbox";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
 
