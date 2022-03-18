@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { } from "../auth";
+  import { getRoleFromToken, getJwtToken } from "../auth";
 
   export default {
     name: "navbar",
