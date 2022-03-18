@@ -13,7 +13,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="habitname">Display Color</label>
+            <label for="display_color">Display Color</label>
             <input
               v-model="display_color"
               type="text"
