@@ -54,6 +54,34 @@ class Api {
     );
   }
 
+  addHabitInstance(habit_instance) {
+    return axios.post(
+      API_URL + "/habit_instance",
+      {
+        ...habit_instance,
+        // add user id from JWT token
+        username: getUserIdFromToken(getJwtToken()),
+      },
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
+  addDaySummary(day_summary) {
+    return axios.post(
+      API_URL + "/day_summary",
+      {
+        ...day_summary,
+        // add user id from JWT token
+        username: getUserIdFromToken(getJwtToken()),
+      },
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
   addCategory(category) {
     return axios.post(
       API_URL + "/category",

@@ -4,73 +4,23 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="title">Habit Name</label>
+            <label for="habit_id">Habit ID</label>
             <input
-              v-model="title"
+              v-model="habit_id"
               type="text"
               class="form-control"
-              name="title"
+              name="habit_id"
             />
           </div>
           <div class="form-group">
-            <label for="category_name">Habit Category</label>
+            <label for="day">Day</label>
             <input
-              v-model="category_name"
+              v-model="day"
               type="text"
               class="form-control"
-              name="category_name"
+              name="day"
             />
           </div>
-          <div class="form-group">
-            <label for="description">Description (Optional)</label>
-            <input
-              v-model="description"
-              type="text"
-              class="form-control"
-              name="description"
-            />
-          </div>
-                    <div class="form-group">
-            <label for="timed">Timed</label>
-            <input
-              v-model="timed"
-              type="text"
-              class="form-control"
-              name="timed"
-            />
-          </div>
-          <div class="form-group">
-            <label for="ratable">Ratable</label>
-            <input
-              v-model="ratable"
-              type="text"
-              class="form-control"
-              name="ratable"
-            />
-          </div>
-          <!-- <div class="form-group">
-            <label class="checkbox" for="timed">
-              <input
-              v-model="timed"
-              type="checkbox"
-              class="radio-button"
-              name="timed"
-              />
-              Timed
-            </label>
-          </div>
-          <div class="form-group">
-            <label class="checkbox" for="ratable">
-              <input
-                type="checkbox"
-                :id="id"
-                class="radio-button"
-                :value="value"
-                :name="name"
-              />
-              Ratable
-            </label>
-          </div> -->
 
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -78,7 +28,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Add Habit</span>
+              <span>Add Habit Schedule</span>
             </button>
           </div>
         </div>
@@ -98,11 +48,8 @@ export default {
   name: "HabitScheduler",
   data() {
     return {
-      timed: "",
-      ratable: "",
-      title: "",
-      category_name: "",
-      description: "",
+      habit_id: "",
+      day: "",
       loading: false,
       message: "",
     };
@@ -111,10 +58,11 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.scheduleHabit({ timed: this.timed, ratable: this.ratable, title: this.title, category_name: this.category_name, description: this.description  })
+      Api.addDaySummary({ day: this.day  })
+      Api.scheduleHabit({ habit_id: this.habit_id, day: this.day  })
         .then(() => {
           this.loading = false;
-          this.$router.push("/admin/");
+          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);
