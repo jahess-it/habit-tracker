@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar location="createhabit"></Navbar>
+    <Navbar location="schedulehabit"></Navbar>
     <HabitScheduler></HabitScheduler>
   </div>
 </template>
@@ -15,6 +15,6 @@ import { getJwtToken } from "../auth";
 import { getUserIdFromToken } from "../auth";
 
 export default {
-  components: { HabitCreator, Habit, Navbar }
+  components: { HabitScheduler, Habit, Navbar }
 };
 </script>
