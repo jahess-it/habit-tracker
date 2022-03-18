@@ -48,30 +48,6 @@
               name="ratable"
             />
           </div>
-          <!-- <div class="form-group">
-            <label class="checkbox" for="timed">
-              <input
-              v-model="timed"
-              type="checkbox"
-              class="radio-button"
-              name="timed"
-              />
-              Timed
-            </label>
-          </div>
-          <div class="form-group">
-            <label class="checkbox" for="ratable">
-              <input
-                type="checkbox"
-                :id="id"
-                class="radio-button"
-                :value="value"
-                :name="name"
-              />
-              Ratable
-            </label>
-          </div> -->
-
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
