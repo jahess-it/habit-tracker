@@ -56,5 +56,5 @@
       Habit,
       Navbar
     }
-  }
+  };
 </script>
