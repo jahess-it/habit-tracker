@@ -8,19 +8,25 @@
     <a :class="{ active: location == 'createcategory' }" href="/createcategory">Create Category</a>
     <a :class="{ active: location == 'logout' }" style="float:right" href="/logout">Logout</a>
     <a :class="{ active: location == 'account' }" style="float:right" href="/account">Account</a>
-    <a :class="{ active: location == 'admin' }" style="float:right" href="/admin">Admin</a>
+    <a v-if="admin" :class="{ active: location == 'admin' }" style="float:right" href="/admin">Admin</a>
   </div>
 </template>
 
 <script>
+  import { } from "../auth";
+
   export default {
     name: "navbar",
     props: {
       location: String
     },
     data: function () {
-      return {};
+      return {
+        admin: false
+      };
     },
-    created: function () {}
+    created: function () {
+      this.admin = getRoleFromToken(getJwtToken()) == "a";
+    }
   };
 </script>
