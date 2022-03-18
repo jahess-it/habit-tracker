@@ -67,7 +67,7 @@
 
 <script>
 import Api from "../api";
-import Checkbox from "./components/checkbox.vue";
+import Checkbox from "./checkbox"
 
 export default {
   components: { Checkbox },
