@@ -14,12 +14,7 @@
           </div>
           <div class="form-group">
             <label for="day">Day</label>
-            <input
-              v-model="day"
-              type="text"
-              class="form-control"
-              name="day"
-            />
+            <input v-model="day" type="text" class="form-control" name="day" />
           </div>
 
           <div class="form-group">
@@ -59,11 +54,26 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addDaySummary({ day: this.day  })
-      Api.addHabitInstance({ habit_id: this.habit_id, day: this.day , complete: this.complete })
+      Api.addDaySummary({ day: this.day })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
+          Api.addHabitInstance({
+            habit_id: this.habit_id,
+            day: this.day,
+            complete: this.complete,
+          })
+            .then(() => {
+              this.loading = false;
+              this.$router.push("/admin/");
+            })
+            .catch((error) => {
+              console.log(error);
+              if (error.response) {
+                this.message = error.response.data.message;
+              }
+              this.loading = false;
+            });
         })
         .catch((error) => {
           console.log(error);
