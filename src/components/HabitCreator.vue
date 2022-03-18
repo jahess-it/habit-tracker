@@ -80,8 +80,11 @@ export default {
   name: "HabitCreator",
   data() {
     return {
+      timed: '',
+      ratable: '',
       title: "",
-      content: "",
+      category_name: "",
+      description: "",
       loading: false,
       message: "",
     };
