@@ -9,13 +9,19 @@
   </div>
   
   <div v-if="show_users">
-    <div v-for="user in users" :key="user.username">
-      <p>Placeholder</p>
+    <div v-if="users_loading">Loading users . . .</div>
+    <div v-else>
+      <div v-for="user in users" :key="user.username">
+        <p>Placeholder</p>
+      </div>
     </div>
   </div>
   <div v-else>
-    <div v-for="habit in habits" :key="habit.habit_id">
-      <Habit :habit="habit"></Habit>
+    <div v-if="habits_loading">Loading habits . . .</div>
+    <div v-else>
+      <div v-for="habit in habits" :key="habit.habit_id">
+        <Habit :habit="habit"></Habit>
+      </div>
     </div>
   </div>
 </template>
@@ -30,13 +36,21 @@
     data: function () {
       return {
         show_users: true,
+        users_loading: true,
         users: [],
+        habits_loading: true,
         habits: []
       };
     },
     created: function () {
-      this.users = Api.getAllAccounts();
-      this.habits = Api.getAllHabits();
+      Api.getAllAccounts().then((res) => {
+        this.users = res.data;
+        this.users_loading = false;
+      });
+      Api.getAllHabits().then((res) => {
+        this.habits = res.data;
+        this.habits_loading = false;
+      });
     },
     components: {
       Habit,
