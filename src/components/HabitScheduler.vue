@@ -62,7 +62,7 @@ export default {
       // Api.addHabitInstance({ habit_id: this.habit_id, day: this.day  })
         .then(() => {
           this.loading = false;
-          this.$router.push("/");
+          this.$router.push("/admin/");
         })
         .catch((error) => {
           console.log(error);
