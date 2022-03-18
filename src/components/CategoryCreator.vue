@@ -21,6 +21,10 @@
               name="display_color"
             />
           </div>
+          <v-color-picker
+            dot-size="25"
+            swatches-max-height="200"
+          ></v-color-picker>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
@@ -57,7 +61,10 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addCategory({ category_name: this.category_name, display_color: this.display_color })
+      Api.addCategory({
+        category_name: this.category_name,
+        display_color: this.display_color,
+      })
         .then(() => {
           this.loading = false;
           this.$router.push("/");
