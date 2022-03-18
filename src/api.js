@@ -7,13 +7,13 @@ class Api {
   getArticles() {
     return axios.get(API_URL + "/articles", {})
   }
-  
-  getAllHabits() {
-    return axios.get(`${API_URL}/habit`);
-  }
 
   getAllHabits(username) {
-    return axios.get(`${API_URL}/habit?username=eq.${username}`);
+    if (username) {
+      return axios.get(`${API_URL}/habit?username=eq.${username}`);
+    } else {
+      return axios.get(`${API_URL}/habit`);
+    }
   }
   
   getUpcomingHabits(username) {
