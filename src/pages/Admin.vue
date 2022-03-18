@@ -20,7 +20,7 @@
       <div v-if="habits_loading">Loading habits . . .</div>
       <div v-else>
         <div v-for="habit in habits" :key="habit.habit_id">
-          <Habits :habit="habit"></Habit>
+          <Habits :habit="habit"></Habits>
         </div>
       </div>
     </div>
