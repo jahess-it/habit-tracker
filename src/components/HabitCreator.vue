@@ -30,13 +30,11 @@
               name="description"
             />
           </div>
-                    <div class="form-group">
-            <label for="timed">Timed</label>
-            <input
+          <div class="form-group">
+            <Checkbox
               v-model="timed"
-              type="text"
-              class="form-control"
               name="timed"
+              text="timed"
             />
           </div>
           <div class="form-group">
@@ -69,12 +67,14 @@
 
 <script>
 import Api from "../api";
+import Checkbox from "./checkbox.vue";
 
 export default {
+  components: { Checkbox },
   name: "HabitCreator",
   data() {
     return {
-      timed: "",
+      timed: false,
       ratable: "",
       title: "",
       category_name: "",
@@ -87,7 +87,13 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addHabit({ timed: this.timed, ratable: this.ratable, title: this.title, category_name: this.category_name, description: this.description  })
+      Api.addHabit({
+        timed: this.timed,
+        ratable: this.ratable,
+        title: this.title,
+        category_name: this.category_name,
+        description: this.description,
+      })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
