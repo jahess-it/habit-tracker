@@ -59,7 +59,7 @@ export default {
       this.loading = true;
       this.message = "";
       Api.addDaySummary({ day: this.day  })
-      Api.addHabitInstance({ habit_id: this.habit_id, day: this.day  })
+      // Api.addHabitInstance({ habit_id: this.habit_id, day: this.day  })
         .then(() => {
           this.loading = false;
           this.$router.push("/");
