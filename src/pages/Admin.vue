@@ -2,12 +2,9 @@
   <div>
     <Navbar location="admin"></Navbar>
 
-    <div>
-      <b-form-group>
-        <b-form-radio v-model="show_users" value="true">Show Users</b-form-radio>
-        <b-form-radio v-model="show_users" value="false">Show Habits</b-form-radio>
-      </b-form-group>
-    </div>
+    <b-button variant="primary" :pressed.sync="show_users">
+      {{ show_users ? "Show Habits" : "Show Users" }}
+    </b-button>
 
     <div v-if="show_users">
       <div v-if="users_loading">Loading users . . .</div>
@@ -21,7 +18,7 @@
       <div v-if="habits_loading">Loading habits . . .</div>
       <div v-else>
         <div v-for="habit in habits" :key="habit.habit_id">
-          <Habit :habit="habit"></Habit>
+          <Habits :habit="habit"></Habit>
         </div>
       </div>
     </div>
@@ -31,7 +28,7 @@
 <script>
   import Api from "../api";
   import Navbar from "../components/Navbar.vue";
-  import Habit from "../components/Habit.vue";
+  import Habits from "../components/Habits.vue";
   
   export default {
     name: "admin",
@@ -56,7 +53,7 @@
       });
     },
     components: {
-      Habit,
+      Habits,
       Navbar
     }
   };
