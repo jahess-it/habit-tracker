@@ -23,7 +23,7 @@ Vue.config.devtools = true;
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import { getJwtToken } from "./auth";
+import { getJwtToken, getRoleFromToken } from "./auth";
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
@@ -36,6 +36,24 @@ const checkAuth = function(to, _, next) {
     next({
       path: "/login",
       params: { nextUrl: to.fullPath },
+    });
+  } else {
+    next();
+  }
+};
+
+const checkAdmin = function(to, _, next) {
+  const token = getJwtToken();
+  if (token === undefined || token === "undefined" || token === null) {
+    // redirect to login because we don't have token yet
+    next({
+      path: "/login",
+      params: { nextUrl: to.fullPath }
+    });
+  } else if (getRoleFromToken(token) != "a") {
+    // redirect to home because user is unauthorized
+    next({
+      path: "/"
     });
   } else {
     next();
@@ -58,7 +76,7 @@ const router = new VueRouter({
     {
       path: "/admin",
       component: Admin,
-      beforeEnter: checkAuth,
+      beforeEnter: checkAdmin,
       children: [
         { path: "add", component: AdminArticleAdd },
         { path: "edit/:id", component: AdminArticleEdit },
