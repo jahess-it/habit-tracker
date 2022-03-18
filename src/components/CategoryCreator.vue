@@ -42,10 +42,6 @@
 
 <script>
 import Api from "../api";
-import Verte from 'verte';
-import 'verte/dist/verte.css';
-Vue.component('verte', Verte);
-components: { Verte }
 
 export default {
   name: "CategoryCreator",
