@@ -50,6 +50,7 @@
         this.users_loading = false;
       });
       Api.getAllHabits().then((res) => {
+        console.log(res);
         this.habits = res.data;
         this.habits_loading = false;
       });
