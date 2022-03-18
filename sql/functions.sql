@@ -89,13 +89,13 @@ CREATE OR REPLACE FUNCTION public.register(username VARCHAR(255), password VARCH
 CREATE OR REPLACE FUNCTION public.login(username VARCHAR(255), password VARCHAR(255)) RETURNS TEXT AS
     $$ DECLARE
       _username VARCHAR(255);
-      role CHAR(1);
+      _privilege_level CHAR(1);
       _jwt_token TEXT;
     BEGIN
       SELECT user_account.username, user_account.privilege_level FROM user_account
       WHERE user_account.username = login.username
       AND user_account.password_hash = crypt(login.password, user_account.password_hash)
-      INTO _username, role;
+      INTO _username, _privilege_level;
       
       IF _username IS NULL THEN
 	RAISE invalid_password USING message = 'incorrect username or password';
@@ -103,7 +103,8 @@ CREATE OR REPLACE FUNCTION public.login(username VARCHAR(255), password VARCHAR(
       
       SELECT sign(row_to_json(users), current_setting('app.settings.jwt_secret')) AS token
       FROM (
-        SELECT role, _username, EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*24 AS exp
+        SELECT 'admins' AS role, _username, _privilege_level,
+	       EXTRACT(EPOCH FROM NOW())::INTEGER + 3600*24 AS exp
       ) users
       INTO _jwt_token;
 
