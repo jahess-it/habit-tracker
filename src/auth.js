@@ -10,6 +10,10 @@ export function getUserIdFromToken(token) {
   return decoded._username;
 }
 
+export function getRoleFromToken(token) {
+  return jwt_decode(token).role;
+}
+
 export function setJwtToken(token) {
   localStorage.setItem("accessToken", token);
 }
