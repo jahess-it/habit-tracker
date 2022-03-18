@@ -4,6 +4,15 @@
   overflow: hidden;
 }
 
+
+.current-color {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-color: #000;
+	cursor: pointer;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;

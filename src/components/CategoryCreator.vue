@@ -12,7 +12,7 @@
               name="category_name"
             />
           </div>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <label for="habitname">Display Color</label>
             <input
               v-model="display_color"
@@ -20,9 +20,6 @@
               class="form-control"
               name="display_color"
             />
-          </div> -->
-          <div class="form-group">
-           <verte picker="square" model="rgb"></verte>
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
