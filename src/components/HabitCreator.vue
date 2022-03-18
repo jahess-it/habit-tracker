@@ -40,7 +40,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="ratable">ratable</label>
+            <label for="ratable">Ratable</label>
             <input
               v-model="ratable"
               type="text"
