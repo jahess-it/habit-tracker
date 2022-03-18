@@ -12,7 +12,7 @@
               name="category_name"
             />
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="habitname">Display Color</label>
             <input
               v-model="display_color"
@@ -20,16 +20,15 @@
               class="form-control"
               name="display_color"
             />
-          </div>
-          <div>
+          </div> -->
+          <div class="form-group">
             <v-row justify="space-around">
               <v-color-picker class="ma-2" hide-inputs></v-color-picker>
               <v-color-picker class="ma-2" hide-mode-switch></v-color-picker>
               <v-row class="ma-2" style="flex: 0 0 auto">
-                <v-color-picker :mode.sync="mode"></v-color-picker>
+                <v-color-picker></v-color-picker>
                 <v-select
-                  v-model="mode"
-                  :items="modes"
+                  v-model="display_color"
                   style="max-width: 300px"
                 ></v-select>
               </v-row>
