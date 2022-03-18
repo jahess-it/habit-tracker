@@ -111,7 +111,7 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addHabit({ title: this.title, content: this.content })
+      Api.addHabit({ timed: this.timed, ratable: this.ratable, title: this.title, category_name: this.category_name, description: this.description  })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
