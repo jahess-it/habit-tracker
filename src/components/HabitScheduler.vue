@@ -50,6 +50,7 @@ export default {
     return {
       habit_id: "",
       day: "",
+      complete: false,
       loading: false,
       message: "",
     };
@@ -59,7 +60,7 @@ export default {
       this.loading = true;
       this.message = "";
       Api.addDaySummary({ day: this.day  })
-      Api.addHabitInstance({ habit_id: this.habit_id, day: this.day , complete: false })
+      Api.addHabitInstance({ habit_id: this.habit_id, day: this.day , complete: this.complete })
         .then(() => {
           this.loading = false;
           this.$router.push("/admin/");
