@@ -11,7 +11,7 @@ export function getUserIdFromToken(token) {
 }
 
 export function getRoleFromToken(token) {
-  return jwt_decode(token).role;
+  return jwt_decode(token)._privilege_level;
 }
 
 export function setJwtToken(token) {
