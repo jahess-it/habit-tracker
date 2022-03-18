@@ -22,17 +22,7 @@
             />
           </div> -->
           <div class="form-group">
-            <v-row justify="space-around">
-              <v-color-picker class="ma-2" hide-inputs></v-color-picker>
-              <v-color-picker class="ma-2" hide-mode-switch></v-color-picker>
-              <v-row class="ma-2" style="flex: 0 0 auto">
-                <v-color-picker></v-color-picker>
-                <v-select
-                  v-model="display_color"
-                  style="max-width: 300px"
-                ></v-select>
-              </v-row>
-            </v-row>
+           <verte picker="square" model="rgb"></verte>
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -55,6 +45,10 @@
 
 <script>
 import Api from "../api";
+import Verte from 'verte';
+import 'verte/dist/verte.css';
+Vue.component('verte', Verte);
+components: { Verte }
 
 export default {
   name: "CategoryCreator",
