@@ -7,6 +7,10 @@ class Api {
   getArticles() {
     return axios.get(API_URL + "/articles", {})
   }
+  
+  getAllHabits() {
+    return axios.get(`${API_URL}/habit`);
+  }
 
   getAllHabits(username) {
     return axios.get(`${API_URL}/habit?username=eq.${username}`);
@@ -30,6 +34,10 @@ class Api {
   
   getAccount(username) {
     return axios.get(`${API_URL}/user_account?username=eq.${username}`);
+  }
+  
+  getAllAccounts() {
+    return axios.get(`${API_URL}/user_account`);
   }
 
   addHabit(habit) {
