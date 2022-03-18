@@ -2,9 +2,11 @@
   <div>
     <Navbar location="admin"></Navbar>
 
-    <b-button variant="primary" :pressed.sync="show_users">
-      {{ show_users ? "Show Habits" : "Show Users" }}
-    </b-button>
+    <div>
+      <b-button variant="primary" :pressed.sync="show_users">
+        {{ show_users ? "Show Habits" : "Show Users" }}
+      </b-button>
+    </div>
 
     <div v-if="show_users">
       <div v-if="users_loading">Loading users . . .</div>
@@ -47,7 +49,6 @@
         this.users_loading = false;
       });
       Api.getAllHabits().then((res) => {
-        console.log(res);
         this.habits = res.data;
         this.habits_loading = false;
       });
