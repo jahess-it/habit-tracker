@@ -3,9 +3,11 @@
     <Navbar location="admin"></Navbar>
 
     <div>
+      <br />
       <b-button variant="primary" :pressed.sync="show_users">
         {{ show_users ? "Show Habits" : "Show Users" }}
       </b-button>
+      <br />
     </div>
 
     <div v-if="show_users">
