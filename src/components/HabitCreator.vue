@@ -31,10 +31,10 @@
             />
           </div>
           <div class="form-group">
-            <label class="radio" for="timed">
+            <label class="checkbox" for="timed">
               <input
               v-model="timed"
-              type="radio"
+              type="checkbox"
               class="radio-button"
               name="timed"
               />
@@ -42,9 +42,9 @@
             </label>
           </div>
           <div class="form-group">
-            <label class="radio" for="ratable">
+            <label class="checkbox" for="ratable">
               <input
-                type="radio"
+                type="checkbox"
                 :id="id"
                 class="radio-button"
                 :value="value"
