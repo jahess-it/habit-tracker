@@ -5,16 +5,21 @@
         <div>
           <div class="form-group">
             <label for="habit_id">Habit ID</label>
-            <input
+            <b-form-select
               v-model="habit_id"
-              type="text"
+              :options="habits"
               class="form-control"
               name="habit_id"
             />
           </div>
           <div class="form-group">
             <label for="day">Day</label>
-            <input v-model="day" type="text" class="form-control" name="day" />
+            <b-form-datepicker
+              v-model="day"
+              :min="new Date()"
+              class="form-control"
+              name="day"
+            />
           </div>
 
           <div class="form-group">
@@ -23,7 +28,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Add Habit Schedule</span>
+              <span>Schedule Habit</span>
             </button>
           </div>
         </div>
@@ -38,6 +43,7 @@
 
 <script>
 import Api from "../api";
+import { getJwtToken, getUserIdFromToken } from "../auth";
 
 export default {
   name: "HabitScheduler",
@@ -48,7 +54,18 @@ export default {
       complete: false,
       loading: false,
       message: "",
+      habits: []
     };
+  },
+  created: function () {
+    Api.getAllHabits(getUserIdFromToken(getJwtToken())).then((res) => {
+      for (var habit res.data) {
+        this.habits.push({
+          value: habit.habit_id,
+          text: habit.title
+        });
+      }
+    });
   },
   methods: {
     handleAdd() {
@@ -57,7 +74,7 @@ export default {
       Api.addDaySummary({ day: this.day })
         .then(() => {
           this.loading = false;
-          this.$router.push("/admin/");
+          this.$router.push("/");
           Api.addHabitInstance({
             habit_id: this.habit_id,
             day: this.day,
