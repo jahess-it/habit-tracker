@@ -76,7 +76,7 @@ export default {
           habit_id: this.habit_id,
           day: this.day,
           complete: this.complete,
-        }).then(() => {
+        }).then((_) => {
           this.loading = false;
           this.$router.push("/");
         }).catch((error) => {
