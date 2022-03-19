@@ -1,12 +1,12 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <p><div style="float:left"><b>{{this.habit.title}} on {{this.habit.day}} </b> </div>
+    <p><div style="float:left"><b>{{this.habit.title}} on {{this.habit.day}}                  </b> </div>
     <div style="float:right"> Complete: {{this.habit.complete}} 
       <button type="button" @click="handleComplete()"> Completed </button>
     </div>
     </p>
+    <p>
     <form name="form" @submit.prevent="handleTime"> 
-    <p></p>
       Time Spent: {{this.habit.time_spent}}
       <span class="form-group">
       <input type="text" placeholder="Input Time" class="form-group" v-model="time_spent" name="time_spent">
@@ -18,6 +18,7 @@
       <input type="text" placeholder="Input Rating" class="form-group" v-model="habit_rating" name="habit_rating">
       <input type="submit" class="form-group"></span> 
     </form>
+    </p>
   </div>
 </template>
 
