@@ -13,8 +13,15 @@
             />
           </div>
           <div class="form-group">
-            <label for="category_name">Habit Category <router-link to="/createcategory">(Create)</router-link> </label>
-            <b-form-select name="category_name" v-model="category_name" :options="categories"></b-form-select>
+            <label for="category_name"
+              >Habit Category
+              <router-link to="/createcategory">(Create)</router-link>
+            </label>
+            <b-form-select
+              name="category_name"
+              v-model="category_name"
+              :options="categories"
+            ></b-form-select>
           </div>
           <div class="form-group">
             <label for="description">Description (Optional)</label>
@@ -27,17 +34,25 @@
           </div>
           <div class="form-group">
             <b-form-checkbox
-      id="checkbox-1"
-      v-model="timed"
-      name="checkbox-1"
-      value="true"
-      unchecked-value="false"
-    >
-      Timed
-    </b-form-checkbox>
+              id="checkbox-1"
+              v-model="timed"
+              name="checkbox-1"
+              value="true"
+              unchecked-value="false"
+            >
+              Timed
+            </b-form-checkbox>
           </div>
           <div class="form-group">
-            <Checkbox v-model="ratable" name="ratable" text="ratable" />
+            <b-form-checkbox
+              id="checkbox-1"
+              v-model="ratable"
+              name="checkbox-1"
+              value="true"
+              unchecked-value="false"
+            >
+              Timed
+            </b-form-checkbox>
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -75,7 +90,7 @@ export default {
       description: "",
       loading: false,
       message: "",
-      categories: []
+      categories: [],
     };
   },
   created: function () {
@@ -83,7 +98,7 @@ export default {
       for (var category of res.data) {
         this.categories.push({
           value: category.category_name,
-          text: category.category_name
+          text: category.category_name,
         });
       }
     });
