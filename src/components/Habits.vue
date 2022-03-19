@@ -26,7 +26,7 @@
     </form>
     <b-button
       variant="outline-danger"
-      @click="() => handleDelete(parseInt(habit.habit_id))"
+      @click="() => handleDelete(habit.habit_id)"
       >Delete</b-button
       >
     </p>
@@ -133,10 +133,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         });
     },
   handleDelete(habit_id) {
+    var ha_id = parseInt(habit_id);
       this.loading = true;
       this.message = "";
       Api.deleteHabit({
-        habit_id
+        ha_id
       })
         .then(() => {
           this.loading = false;
