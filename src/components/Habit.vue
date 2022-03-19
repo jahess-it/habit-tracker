@@ -1,9 +1,9 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <span style="float:left"><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
-    <span style="float:right"> Complete: {{this.habit.complete}} 
+    <div style="float:left"><b>{{this.habit.title}} on {{this.habit.day}} </b> </div>
+    <div style="float:right"> Complete: {{this.habit.complete}} 
       <button type="button" @click="handleComplete()"> Completed </button>
-    </span>
+    </div>
     <div>
     <form name="form" @submit.prevent="handleTime"> 
       Time Spent: {{this.habit.time_spent}}
