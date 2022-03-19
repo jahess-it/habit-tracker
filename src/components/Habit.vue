@@ -6,7 +6,7 @@
     <form name="form" @submit.prevent="handleRating"> 
     <span class="form-group">
     <input type="text" class="form-group" v-model="habit_rating" name="habit_rating">
-    <input type="button" class="form-group" placeholder="Input Rating"> Input Rating </button> </span> </form>
+    <input type="submit" class="form-group"> Input Rating </span> </form>
     Day: {{this.habit.day}} 
     Complete: {{this.habit.complete}} <button type="button" @click="handleComplete()"> Completed </button>
     </p>
