@@ -45,9 +45,9 @@
           </div>
           <div class="form-group">
             <b-form-checkbox
-              id="checkbox-1"
+              id="checkbox-2"
               v-model="ratable"
-              name="checkbox-1"
+              name="checkbox-2"
               value="true"
               unchecked-value="false"
             >
