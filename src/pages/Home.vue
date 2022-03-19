@@ -10,7 +10,7 @@
       <h2 style="text-align: center">Your Habits</h2>
     </div>
     <div v-if="loading1">Loading habits . . .</div>
-    <div v-else>
+    <div v-else class="card card-container p-4">
       <div v-for="habit in habitss" :key="habit.habit_id">
         <Habits :habit="habit"></Habits>
       </div>
@@ -20,7 +20,7 @@
       <h2 style="text-align: center">Upcoming Habits</h2>
     </div>
     <div v-if="loading2">Loading habits . . .</div>
-    <div v-else>
+    <div v-else class="card card-container p-4">
       <div v-for="habit in habits" :key="habit.habit_id">
         <Habit :habit="habit"></Habit>
       </div>
