@@ -6,6 +6,7 @@
     </div>
     </p>
     <form name="form" @submit.prevent="handleTime"> 
+    <p></p>
       Time Spent: {{this.habit.time_spent}}
       <span class="form-group">
       <input type="text" placeholder="Input Time" class="form-group" v-model="time_spent" name="time_spent">
