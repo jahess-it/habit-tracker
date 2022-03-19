@@ -79,7 +79,7 @@ class Api {
       {
         ...day_summary,
         // add user id from JWT token
-        username: this.username,
+        username: username,
       },
       {
         headers: authHeader(),
