@@ -14,16 +14,11 @@
           </div>
           <div class="form-group">
             <div>
-              <b-dropdown id="dropdown-1" text="Display Color" v-model="display_color">
-                <b-dropdown-item>Blue</b-dropdown-item>
-                <b-dropdown-item>Green</b-dropdown-item>
-                <b-dropdown-item>Red</b-dropdown-item>
-                <b-dropdown-item>Gold</b-dropdown-item>
-                <b-dropdown-item>Gray</b-dropdown-item>
-                <b-dropdown-item>Purple</b-dropdown-item>
-              </b-dropdown>
+              <b-form-select
+                v-model="display_color"
+                :options="options"
+              ></b-form-select>
             </div>
-            
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -52,9 +47,14 @@ export default {
   data() {
     return {
       category_name: "",
-      display_color: "",
       loading: false,
       message: "",
+      display_color: null,
+        options: [
+          { value: null, text: 'Please select an option' },
+          { value: '#FF0000', text: 'Red' },
+          { value: '#00FF00', text: 'Green' }
+        ]
     };
   },
   methods: {
