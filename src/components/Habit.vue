@@ -1,5 +1,6 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
+  <p>
     <span><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
     <span style="float:right"> Complete: {{this.habit.complete}} 
       <button type="button" @click="handleComplete()"> Completed </button>
@@ -17,7 +18,9 @@
       <input type="text" placeholder="Input Rating" class="form-group" v-model="habit_rating" name="habit_rating">
       <input type="submit" class="form-group"></span> 
     </form>
+    </p>
   </div>
+  
 </template>
 
 <script>
