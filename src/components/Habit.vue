@@ -17,9 +17,11 @@
     data: function () {
       return {};
     },
+    created: function () {
+    },
     methods: {
       updateCompleted() {
-        habit.complete = !this.habit.complete
+        habit.complete = !this.habit.complete;
         Api.updateHabitInstance({ habit }).then((_) => {
         }).catch((error) => {
           console.log(error);
