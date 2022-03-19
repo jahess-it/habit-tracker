@@ -59,7 +59,7 @@ export default {
   },
   created: function () {
     Api.getAllHabits(getUserIdFromToken(getJwtToken())).then((res) => {
-      for (var habit res.data) {
+      for (var habit of res.data) {
         this.habits.push({
           value: habit.habit_id,
           text: habit.title
