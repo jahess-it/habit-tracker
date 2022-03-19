@@ -115,8 +115,9 @@ class Api {
   
   
   updateHabitInstance(habit) {
+    const username = getUserIdFromToken(getJwtToken());
     return axios.patch(
-      API_URL + `/habit_instance?habit_id=eq.${habit.habit_id}&day=eq.${habit.day}&username=eq.${habit.username}`,
+      API_URL + `/habit_instance?habit_id=eq.${habit.habit_id}&day=eq.${habit.day}&username=eq.${username}`,
       {
         ...habit,
         // add user id from JWT token
