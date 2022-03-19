@@ -19,13 +19,6 @@
       <span class="form-group">
       <input type="text" placeholder="Input New Title" class="form-group" v-model="title" name="title">
       <input type="submit" class="form-group"></span> 
-      <button class="btn btn-block" :disabled="loading">
-              <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-              ></span>
-              <span>Change Title</span>
-            </button>
     </form>
     <form name="form" @submit.prevent="handleDescription"> 
       Change Description:
