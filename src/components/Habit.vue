@@ -21,17 +21,25 @@
     created: function () {
     },
     methods: {
-      updateCompleted() {
-        habit.complete = !this.habit.complete;
-        Api.updateHabitInstance(habit).then((res) => {
-        }).catch((error) => {
+    handleAdd() {
+      this.loading = true;
+      this.message = "";
+      habit.complete = !habit.complete
+      Api.updateHabitInstance({
+        habit
+      })
+        .then(() => {
+          this.loading = false;
+          this.$router.push("/");
+        })
+        .catch((error) => {
           console.log(error);
           if (error.response) {
             this.message = error.response.data.message;
           }
           this.loading = false;
         });
-      },
     },
-  };
+  },
+};
 </script>
