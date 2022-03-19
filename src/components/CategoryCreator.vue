@@ -13,15 +13,8 @@
             />
           </div>
           <div class="form-group">
-            <label for="display_color">Display Color</label>
-            <input
-              v-model="display_color"
-              type="text"
-              class="form-control"
-              name="display_color"
-            />
             <div>
-              <b-dropdown id="dropdown-1" text="Dropdown Button">
+              <b-dropdown id="dropdown-1" text="Display Color" v-model="display_color">
                 <b-dropdown-item>Blue</b-dropdown-item>
                 <b-dropdown-item>Green</b-dropdown-item>
                 <b-dropdown-item>Red</b-dropdown-item>
@@ -30,6 +23,7 @@
                 <b-dropdown-item>Purple</b-dropdown-item>
               </b-dropdown>
             </div>
+            
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
