@@ -39,6 +39,10 @@ class Api {
   getAllAccounts() {
     return axios.get(`${API_URL}/user_account`);
   }
+  
+  getCategories(username) {
+    return axios.get(`${API_URL}/category?username=eq.${username}`);
+  }
 
   addHabit(habit) {
     return axios.post(
