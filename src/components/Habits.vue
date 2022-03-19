@@ -26,7 +26,7 @@
     </form>
     <b-button
       variant="outline-danger"
-      @click="() => handleDelete(habit.habit_id)"
+      @click="() => handleDelete(parseInt(habit.habit_id))"
       >Delete</b-button
       >
     </p>
