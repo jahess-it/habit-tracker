@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #ADD8E6">
+  <div style="background-color: #ADD8E6 padding: 25px;">
   <p>
     <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
     <!-- <span style="float:right"> Timed: {{this.habit.timed}} 
@@ -26,11 +26,9 @@
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <input type="submit" class="form-group"></span> 
     </form>
-
-            <b-button
-
-        @click="() => handleDelete(habit.habit_id)"
-        >Delete</b-button
+      <b-button
+      @click="() => handleDelete(habit.habit_id)"
+      >Delete</b-button
       >
 
     </p>
@@ -41,13 +39,13 @@
 <script>
 import Api from "../api";
 import { getJwtToken, getUserIdFromToken } from "../auth";
-  export default {
-    name: "habit",
-    props: {
-      habit: Object
-    },
-    data () {
-      return {
+export default {
+  name: "habit",
+  props: {
+    habit: Object,
+  },
+  data() {
+    return {
       title: "",
       habit_id: "",
       username: "",
@@ -55,21 +53,20 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       category_name: "",
       timed: false,
       ratable: false,
-      };
-    },
-    created: function () {
-    },
-    methods: {
+    };
+  },
+  created: function () {},
+  methods: {
     handleTimed() {
       this.loading = true;
       this.message = "";
       Api.updateHabit({
         habit_id: this.habit.habit_id,
-        timed: !this.habit.timed
+        timed: !this.habit.timed,
       })
         .then(() => {
           this.loading = false;
-          this.$router.go()
+          this.$router.go();
         })
         .catch((error) => {
           console.log(error);
@@ -84,11 +81,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       this.message = "";
       Api.updateHabit({
         habit_id: this.habit.habit_id,
-        ratable: !this.habit.ratable
+        ratable: !this.habit.ratable,
       })
         .then(() => {
           this.loading = false;
-          this.$router.go()
+          this.$router.go();
         })
         .catch((error) => {
           console.log(error);
@@ -103,11 +100,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       this.message = "";
       Api.updateHabit({
         habit_id: this.habit.habit_id,
-        title: this.title
+        title: this.title,
       })
         .then(() => {
           this.loading = false;
-          this.$router.go()
+          this.$router.go();
         })
         .catch((error) => {
           console.log(error);
@@ -122,11 +119,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       this.message = "";
       Api.updateHabitInstance({
         habit_id: this.habit.habit_id,
-        description: this.description
+        description: this.description,
       })
         .then(() => {
           this.loading = false;
-          this.$router.go()
+          this.$router.go();
         })
         .catch((error) => {
           console.log(error);
@@ -136,13 +133,13 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  handleDelete(habit_id) {
+    handleDelete(habit_id) {
       this.loading = true;
       this.message = "";
       Api.deleteHabit(habit_id)
         .then(() => {
           this.loading = false;
-          this.$router.go()
+          this.$router.go();
         })
         .catch((error) => {
           console.log(error);
@@ -152,6 +149,6 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  }
+  },
 };
 </script>
