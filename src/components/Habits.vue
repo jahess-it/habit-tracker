@@ -132,11 +132,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  handleDelete() {
+  handleDelete(habit_id) {
       this.loading = true;
       this.message = "";
       Api.deleteHabit({
-        habit_id: this.habit.habit_id
+        habit_id
       })
         .then(() => {
           this.loading = false;
