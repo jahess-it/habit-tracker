@@ -15,6 +15,7 @@ import Account from "./pages/Account";
 import CreateHabit from "./pages/CreateHabit";
 import ScheduleHabit from "./pages/ScheduleHabit";
 import CreateCategory from "./pages/CreateCategory";
+import CreateJournal from "./pages/CreateJournal";
 import AdminArticleAdd from "./components/AdminArticleAdd";
 import AdminArticleList from "./components/AdminArticleList";
 import AdminArticleEdit from "./components/AdminArticleEdit";
@@ -72,6 +73,7 @@ const router = new VueRouter({
     { path: "/schedulehabit", component: ScheduleHabit, beforeEnter: checkAuth },
     { path: "/createhabit", component: CreateHabit, beforeEnter: checkAuth },
     { path: "/createcategory", component: CreateCategory, beforeEnter: checkAuth },
+    { path: "/createjournal", component: CreateJournal, beforeEnter: checkAuth },
     { path: "/login", component: Login },
     { path: "/logout", component: Logout },
     { path: "/register", component: Register },
