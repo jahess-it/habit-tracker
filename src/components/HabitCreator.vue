@@ -76,10 +76,8 @@
 <script>
 import Api from "../api";
 import { getJwtToken, getUserIdFromToken } from "../auth";
-import Checkbox from "./Checkbox";
 
 export default {
-  components: { Checkbox },
   name: "HabitCreator",
   data() {
     return {
