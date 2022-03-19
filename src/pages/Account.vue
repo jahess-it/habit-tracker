@@ -10,7 +10,7 @@
     </div>
     <div v-if="loading">Loading Account . . .</div>
     <div v-else>
-    <div v-for="account in accounts" :key="account.username">
+    <div style="text-align: center" v-for="account in accounts" :key="account.username">
       <Accounts :account="account"></Accounts>
     </div>
     </div>
