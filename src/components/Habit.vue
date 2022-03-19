@@ -5,13 +5,13 @@
     <form name="form" @submit.prevent="handleTime"> 
       Time Spent: {{this.habit.time_spent}}
       <span class="form-group">
-      <input type="text" placeholder="Input Time" class="form-group form-control" v-model="time_spent" name="time_spent">
+      <input type="text" placeholder="Input Time" class="form-group" v-model="time_spent" name="time_spent">
       <input type="submit" class="form-group"></span> 
     </form>
     <form name="form" @submit.prevent="handleRating"> 
       Habit Rating: {{this.habit.habit_rating}} 
       <span class="form-group">
-      <input type="text" placeholder="Input Rating" class="form-group form-control" v-model="habit_rating" name="habit_rating">
+      <input type="text" placeholder="Input Rating" class="form-group" v-model="habit_rating" name="habit_rating">
       <input type="submit" class="form-group"></span> 
     </form>
     Day: {{this.habit.day}} 
