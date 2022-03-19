@@ -18,7 +18,9 @@
       user: Object
     },
     data: function () {
-      admin: false
+      return {
+        admin: false
+      };
     },
     created: function () {
       this.admin = (user.privilege_level == "a");
