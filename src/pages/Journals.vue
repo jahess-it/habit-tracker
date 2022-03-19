@@ -7,14 +7,14 @@
     </div>
     <div>
       <h2 style="text-align: center">Your Journal</h2>
-      <button @click="goToCreatejournal()" class="btn btn-primary btn-block" style="float:right" :disabled="loading">
+    </div>
+    <button @click="goToCreatejournal()" class="btn btn-primary btn-block" style="float:right" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
               <span>Log Journal Entry</span>
        </button>
-    </div>
     <div v-if="loading">Loading journals . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="journal in journals" :key="String(journal.day)">
