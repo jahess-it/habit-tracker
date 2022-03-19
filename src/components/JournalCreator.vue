@@ -16,7 +16,7 @@
           <div class="form-group">
             <label for="journal">Journal Entry</label>
             <input
-              v-model="description"
+              v-model="journal"
               type="text"
               class="form-control"
               name="journal"
@@ -24,7 +24,8 @@
           <div class="form-group">
             <label for="day_rating">Rating</label>
             <b-form-rating
-              v-model="value"
+              v-model="day_rating"
+              type="real"
               variant="success"
               show-value
               show-value-max
