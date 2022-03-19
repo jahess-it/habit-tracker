@@ -51,7 +51,7 @@
               value="true"
               unchecked-value="false"
             >
-              Timed
+              Ratable
             </b-form-checkbox>
           </div>
           <div class="form-group">
