@@ -8,9 +8,9 @@
     <button @click="goToCreatejournal()" class="btn btn-primary" style="float:right">
        <span>Log Journal Entry</span>
     </button>
-    <div>
+    <span>
       <h2 style="text-align: center">Your Journal</h2>
-    </div>
+    </span>
     <div v-if="loading">Loading journals . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="journal in journals" :key="String(journal.day)">
