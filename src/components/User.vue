@@ -28,8 +28,7 @@
         this.$vbModal.msgBoxConfirm(`Demote admin user ${user.username} to basic user?`, {
           title: "Demote Admin",
           okVariant: "danger",
-          okTitle: "Demote User",
-          cancelVariant: "secondary"
+          okTitle: "Demote User"
         }).then((res) = > {
           //TODO: API call to demote user
         }).catch((err) => {
