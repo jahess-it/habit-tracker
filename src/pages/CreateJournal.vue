@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar location="createhabit"></Navbar>
-    <HabitCreator></HabitCreator>
+    <JournalCreator></JournalCreator>
   </div>
 </template>
 
