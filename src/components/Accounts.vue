@@ -1,15 +1,12 @@
 <template>
   <div>
     <p>
-      Username: {{this.account.username}}
+      <b>Username:</b> {{this.account.username}}
       </p>
       <p>
-      Email: {{this.account.email}} <button type="button">Change Email</button>
+      <b>Email:</b> {{this.account.email}}
       </p>
-      Mobile Phone: {{this.account.mobile_phone}} <button type="button">Change Number</button>
-      <p>
-      <button type="button">Change Password</button>
-      </p>
+      <b>Mobile Phone:</b> {{this.account.mobile_phone}}
   </div>
 </template>
 
