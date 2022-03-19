@@ -34,11 +34,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       this.loading = true;
       this.message = "";
       Api.updateHabitInstance({
-        title: this.title,
-        time_spent: this.time_spent,
-        habit_rating: this.habit_rating,
-        day: this.day,
-        complete: !this.complete,
+        title: this.habit.title,
+        time_spent: this.habit.time_spent,
+        habit_rating: this.habit.habit_rating,
+        day: this.habit.day,
+        complete: !this.habit.complete,
       })
         .then(() => {
           this.loading = false;
