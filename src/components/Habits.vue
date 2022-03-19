@@ -24,6 +24,11 @@
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <input type="submit" class="form-group"></span> 
     </form>
+    <b-button
+      variant="outline-danger"
+      @click="() => deleteHabit(habit.habit_id)"
+      >Delete</b-button
+      >
     </p>
   </div>
   
@@ -114,6 +119,25 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       Api.updateHabitInstance({
         habit_id: this.habit.habit_id,
         description: this.description
+      })
+        .then(() => {
+          this.loading = false;
+          this.$router.go()
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
+    },
+  },
+  handleDelete() {
+      this.loading = true;
+      this.message = "";
+      Api.deleteHabit({
+        habit_id: this.habit.habit_id
       })
         .then(() => {
           this.loading = false;
