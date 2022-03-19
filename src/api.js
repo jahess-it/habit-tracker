@@ -115,7 +115,9 @@ class Api {
   updateHabitInstance(habit) {
     return axios.patch(
       API_URL + `/habit_instance?habit_id=eq.${habit.habit_id}&day=eq.${habit.day}&username=eq.${habit.username}`,
-      habit,
+      {
+        ...habit,
+      },
       {
         headers: authHeader(),
       }
