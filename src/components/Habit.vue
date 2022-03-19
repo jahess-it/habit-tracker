@@ -18,8 +18,10 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
     props: {
       habit: Object
     },
-    data: function () {
-      return {};
+    data () {
+      return {
+      newHabit: Object
+      };
     },
     created: function () {
     },
@@ -27,9 +29,10 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
     handleAdd() {
       this.loading = true;
       this.message = "";
-      this.habit.complete = !this.habit.complete
+      newHabit = this.habit;
+      newHabit.complete = !newHabit.complete;
       Api.updateHabitInstance({
-        habit
+        newHabit
       })
         .then(() => {
           this.loading = false;
