@@ -117,7 +117,7 @@ export default {
     handleDescription() {
       this.loading = true;
       this.message = "";
-      Api.updateHabitInstance({
+      Api.updateHabit({
         habit_id: this.habit.habit_id,
         description: this.description,
       })
