@@ -5,12 +5,12 @@
     <div>
       <h1 style="text-align: center">Habit Tracker</h1>
     </div>
-    <button @click="goToCreatejournal()" class="btn btn-primary" style="float:right">
+    <div>
+      <h2 style="text-align: center">Your Journal</h2>
+    </div>
+    <button @click="goToCreatejournal()" class="btn btn-primary btn-block">
        <span>Log Journal Entry</span>
     </button>
-    <span>
-      <h2 style="text-align: center">Your Journal</h2>
-    </span>
     <div v-if="loading">Loading journals . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="journal in journals" :key="String(journal.day)">
