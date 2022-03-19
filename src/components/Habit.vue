@@ -1,8 +1,8 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <span style="align:left"><b>{{this.habit.title}}</b> </span>
-    <span style="align:center">Day: {{this.habit.day}} </span>
-    <span style="align:right"> Complete: {{this.habit.complete}} 
+    <span style="float:left"><b>{{this.habit.title}}</b> </span>
+    <span style="float:center">Day: {{this.habit.day}} </span>
+    <span style="float:right"> Complete: {{this.habit.complete}} 
       <button type="button" @click="handleComplete()"> Completed </button>
     </span>
         
