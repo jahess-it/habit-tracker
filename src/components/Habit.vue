@@ -26,7 +26,7 @@
       this.message = "";
       this.habit.complete = !this.habit.complete
       Api.updateHabitInstance({
-        this.habit
+        habit
       })
         .then(() => {
           this.loading = false;
