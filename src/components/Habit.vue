@@ -39,7 +39,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         habit_id: this.habit.habit_id,
         username: this.habit.username,
         day: this.habit.day,
-        complete: this.habit.complete
+        complete: !this.habit.complete
       })
         .then(() => {
           this.loading = false;
