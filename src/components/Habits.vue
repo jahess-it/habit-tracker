@@ -1,35 +1,7 @@
 <template>
   <div style="background-color: #ADD8E6">
-    <p>
-    <b>{{this.habit.title}}</b>
-    Description: {{this.habit.description}}
-    Timed: {{this.habit.timed}}
-    Ratable: {{this.habit.ratable}}
-    Category Name: {{this.habit.category_name}}
-    </p>
-  </div>
-</template>
-
-<script>
-  export default {
-    name: "habit",
-    props: {
-      habit: Object
-    },
-    data: function () {
-      return {};
-    },
-    created: function () {}
-  };
-</script>
-
-
-
-<template>
-  <div style="background-color: #ADD8E6">
   <p>
-    <span><b>{{this.habit.title}} </b> </span> in 
-    <span> Category Name: {{this.habit.category_name}} </span>
+    <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
     <span style="float:right"> Timed: {{this.habit.timed}} 
       <button type="button" @click="handleTimed()"> Timed </button>
     </span>
