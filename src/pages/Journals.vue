@@ -8,12 +8,8 @@
     <div>
       <h2 style="text-align: center">Your Journal</h2>
     </div>
-    <button @click="goToCreatejournal()" class="btn btn-primary btn-block" style="float:right" :disabled="loading">
-              <span
-                v-show="loading"
-                class="spinner-border spinner-border-sm"
-              ></span>
-              <span>Log Journal Entry</span>
+    <button @click="goToCreatejournal()" class="btn btn-primary btn-block">
+              <span style="float:right">Log Journal Entry</span>
        </button>
     <div v-if="loading">Loading journals . . .</div>
     <div v-else class="card card-container p-4">
