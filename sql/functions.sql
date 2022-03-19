@@ -20,8 +20,9 @@ CREATE OR REPLACE FUNCTION get_calendar(start DATE, finish DATE) RETURNS TABLE(
     SELECT h.username, h.habit_id, h.title, i.day, i.complete, i.time_spent, i.habit_rating, c.display_color
     FROM habit h
     INNER JOIN habit_instance i ON h.habit_id = i.habit_id
-    INNER JOIN category c ON h.category_name = c.category_name
+    INNER JOIN category c ON h.category_name = c.category_name AND h.username = c.username
     WHERE day BETWEEN start AND finish
+    ORDER BY day;
     $$
     LANGUAGE SQL;
     
