@@ -64,7 +64,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         habit_id: this.habit.habit_id,
         username: this.habit.username,
         day: this.habit.day,
-        complete: !this.habit.complete
+        time_spent: !this.habit.time_spent
       })
         .then(() => {
           this.loading = false;
@@ -85,7 +85,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         habit_id: this.habit.habit_id,
         username: this.habit.username,
         day: this.habit.day,
-        habit_rating: this.habit.complete
+        habit_rating: this.habit.habit_rating
       })
         .then(() => {
           this.loading = false;
