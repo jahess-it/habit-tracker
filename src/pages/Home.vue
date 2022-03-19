@@ -9,6 +9,9 @@
     <div>
       <h2 style="text-align: center">Your Habits</h2>
     </div>
+    <button @click="goToCreatehabit()" class="btn btn-primary btn-block">
+       <span>Create Habit</span>
+    </button>
     <div v-if="loading1">Loading habits . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="habit in habitss" :key="habit.habit_id">
@@ -19,6 +22,9 @@
     <div>
       <h2 style="text-align: center">Upcoming Habits</h2>
     </div>
+    <button @click="goToSchedulehabit()" class="btn btn-primary btn-block">
+       <span>Schedule Habit</span>
+    </button>
     <div v-if="loading2">Loading habits . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="habit in habits" :key="habit.habit_id">
@@ -60,6 +66,14 @@ export default {
       this.habitss = res.data;
       this.loading1 = false;
     });
+  },
+  methods: {
+    goToSchedulehabit() {
+   this.$router.push('/schedulehabit'); 
+      },
+    goToCreatehabit() {
+   this.$router.push('/createhabit'); 
+      }
   },
   components: { Habit, Habits, Navbar }
 };
