@@ -73,8 +73,8 @@ class Api {
   }
 
   addDaySummary(day_summary) {
-    return axios.post(
-      API_URL + "/day_summary",
+    return axios.put(
+      `${API_URL}/day_summary?day=eq.${day_summary.day}`,
       {
         ...day_summary,
         // add user id from JWT token
