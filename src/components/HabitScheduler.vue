@@ -16,6 +16,7 @@
             <label for="day">Day</label>
             <b-form-datepicker
               v-model="day"
+              placeholder="Select the Day for the Habit to Take place"
               :min="new Date()"
               class="form-control"
               name="day"
