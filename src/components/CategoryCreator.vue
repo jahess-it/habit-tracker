@@ -63,7 +63,7 @@ export default {
       })
         .then(() => {
           this.loading = false;
-          this.$router.push("/");
+          this.$router.push("/createhabit");
         })
         .catch((error) => {
           console.log(error);
