@@ -4,9 +4,9 @@
     Time Spent: {{this.habit.time_spent}} <button type="button">Input Time</button>
     Habit Rating: {{this.habit.habit_rating}} 
     <form name="form" @submit.prevent="handleRating"> 
-    <div class="form-group">
-    <input type="text" class="form-group" v-model="habit_rating" name="habit_rating"> </div>
-    <input type="submit"> </form>
+    <span class="form-group">
+    <input type="text" class="form-group" v-model="habit_rating" name="habit_rating">
+    <input type="submit"> </span> </form>
     Day: {{this.habit.day}} 
     Complete: {{this.habit.complete}} <button type="button" @click="handleComplete()"> Completed </button>
     </p>
