@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import Api from "../api";
+import { getJwtToken, getUserIdFromToken } from "../auth";
+
   export default {
     name: "habit",
     props: {
