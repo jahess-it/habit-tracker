@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #ADD8E6 padding: 25px;">
+  <div style="background-color: #ADD8E6; padding: 25px;">
   <p>
     <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
     <!-- <span style="float:right"> Timed: {{this.habit.timed}} 
