@@ -71,34 +71,28 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addDaySummary({ day: this.day })
-        .then(() => {
+      Api.addDaySummary({ day: this.day }).then((_) => {
+        Api.addHabitInstance({
+          habit_id: this.habit_id,
+          day: this.day,
+          complete: this.complete,
+        }).then(() => {
           this.loading = false;
           this.$router.push("/");
-          Api.addHabitInstance({
-            habit_id: this.habit_id,
-            day: this.day,
-            complete: this.complete,
-          })
-            .then(() => {
-              this.loading = false;
-              this.$router.push("/admin/");
-            })
-            .catch((error) => {
-              console.log(error);
-              if (error.response) {
-                this.message = error.response.data.message;
-              }
-              this.loading = false;
-            });
-        })
-        .catch((error) => {
+        }).catch((error) => {
           console.log(error);
           if (error.response) {
             this.message = error.response.data.message;
           }
           this.loading = false;
         });
+      }).catch((error) => {
+        console.log(error);
+        if (error.response) {
+          this.message = error.response.data.message;
+        }
+        this.loading = false;
+      });
     },
   },
 };
