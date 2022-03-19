@@ -26,7 +26,15 @@
             />
           </div>
           <div class="form-group">
-            <Checkbox v-model="timed" name="timed" text="timed" />
+            <b-form-checkbox
+      id="checkbox-1"
+      v-model="timed"
+      name="checkbox-1"
+      value="true"
+      unchecked-value="false"
+    >
+      Timed
+    </b-form-checkbox>
           </div>
           <div class="form-group">
             <Checkbox v-model="ratable" name="ratable" text="ratable" />
