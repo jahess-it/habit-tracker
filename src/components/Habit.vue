@@ -43,7 +43,6 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       })
         .then(() => {
           this.loading = false;
-          this.$router.push("/");
         })
         .catch((error) => {
           console.log(error);
