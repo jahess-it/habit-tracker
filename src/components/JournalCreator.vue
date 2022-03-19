@@ -74,23 +74,18 @@ export default {
           day: this.day,
           journal: this.journal,
           day_rating: this.day_rating,
-        }).then((_) => {
+        })
+        .then(() => {
           this.loading = false;
           this.$router.push("/");
-        }).catch((error) => {
+        })
+        .catch((error) => {
           console.log(error);
           if (error.response) {
             this.message = error.response.data.message;
           }
           this.loading = false;
         });
-      }).catch((error) => {
-        console.log(error);
-        if (error.response) {
-          this.message = error.response.data.message;
-        }
-        this.loading = false;
-      });
     },
   },
 };
