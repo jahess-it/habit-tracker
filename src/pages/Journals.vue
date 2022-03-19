@@ -7,9 +7,16 @@
     </div>
     <div>
       <h2 style="text-align: center">Your Journal</h2>
+      <button @click="goToCreatejournal()" class="btn btn-block " :disabled="loading">
+              <span
+                v-show="loading"
+                class="spinner-border spinner-border-sm"
+              ></span>
+              <span>Log Journal Entry</span>
+       </button>
     </div>
     <div v-if="loading">Loading journals . . .</div>
-    <div v-else>
+    <div v-else class="card card-container p-4">
       <div v-for="journal in journals" :key="String(journal.day)">
         <Journal :journal="journal"></Journal>
       </div>
@@ -40,6 +47,11 @@ export default {
       this.journals = res.data;
       this.loading = false;
     });
+  },
+  methods: {
+    goToCreatejournal() {
+   this.$router.push('/createjournal'); 
+      }
   },
   components: { Journal, Navbar }
 };
