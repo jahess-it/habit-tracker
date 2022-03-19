@@ -1,16 +1,19 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
     <p><b>{{this.habit.title}}</b>
+    <span>Day: {{this.habit.day}} </span>
     <form name="form" @submit.prevent="handleTime"> 
-    Time Spent: {{this.habit.time_spent}}
-    <span class="form-group">
-    <input type="text" class="form-group" v-model="time_spent" name="time_spent">
-    <input type="submit" class="form-group"> Input Rating </span> </form>
+      Time Spent: {{this.habit.time_spent}}
+      <span class="form-group">
+      <input type="text" class="form-group" v-model="time_spent" name="time_spent">
+      <input type="submit" class="form-group"> Input Rating </span> 
+    </form>
     <form name="form" @submit.prevent="handleRating"> 
-    Habit Rating: {{this.habit.habit_rating}} 
-    <span class="form-group">
-    <input type="text" class="form-group" v-model="habit_rating" name="habit_rating">
-    <input type="submit" class="form-group"> Input Rating </span> </form>
+      Habit Rating: {{this.habit.habit_rating}} 
+      <span class="form-group">
+      <input type="text" class="form-group" v-model="habit_rating" name="habit_rating">
+      <input type="submit" class="form-group"> Input Rating </span> 
+    </form>
     Day: {{this.habit.day}} 
     Complete: {{this.habit.complete}} <button type="button" @click="handleComplete()"> Completed </button>
     </p>
