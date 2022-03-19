@@ -12,6 +12,12 @@
     <p>
     <span> Description: {{this.habit.description}} </span>
 
+        <b-button
+        style = "float:right"
+        @click="() => handleDelete(habit.habit_id)"
+        >Delete</b-button
+      >
+
     <form name="form" @submit.prevent="handleTitle"> 
       Change Title:
       <span class="form-group">
@@ -24,11 +30,7 @@
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <input type="submit" class="form-group"></span> 
     </form>
-    <b-button
-        style = "float:right"
-        @click="() => handleDelete(habit.habit_id)"
-        >Delete</b-button
-      >
+
     </p>
   </div>
   
