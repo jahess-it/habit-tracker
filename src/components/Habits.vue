@@ -132,7 +132,6 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  },
   handleDelete() {
       this.loading = true;
       this.message = "";
@@ -151,5 +150,6 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  };
+  }
+};
 </script>
