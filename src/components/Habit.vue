@@ -20,8 +20,8 @@
     created: function () {},
     methods: {
       updateCompleted() {
-        this.habit.complete = !this.habit.complete
-        Api.updateHabitInstance({ this.habit }).then((_) => {
+        habit.complete = !this.habit.complete
+        Api.updateHabitInstance({ habit }).then((_) => {
         }).catch((error) => {
           console.log(error);
           if (error.response) {
