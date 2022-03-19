@@ -29,7 +29,7 @@
           title: "Demote Admin",
           okVariant: "danger",
           okTitle: "Demote User"
-        }).then((res) = > {
+        }).then((res) => {
           //TODO: API call to demote user
         }).catch((err) => {
           console.log(err.response);
