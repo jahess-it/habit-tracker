@@ -36,10 +36,10 @@
             Api.updateUser({
               username: this.user.username,
               privilege_level: "b"
+            }).then((_) => {
+              this.$router.go();
             });
           }
-        }).then((_) => {
-          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
@@ -54,10 +54,10 @@
             Api.updateUser({
               username: this.user.username,
               privilege_level: "a"
+            }).then((_) => {
+              this.$router.go();
             });
           }
-        }).then((_) => {
-          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
@@ -69,10 +69,10 @@
           okTitle: "Delete"
         }).then((res) => {
           if (res) {
-            Api.deleteUser(this.user);
+            Api.deleteUser(this.user).then((_) => {
+              this.$router.go();
+            });
           }
-        }).then((_) => {
-          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
