@@ -7,7 +7,7 @@
     </div>
     <div>
       <h2 style="text-align: center">Your Journal</h2>
-      <button @click="goToCreatejournal()" class="btn btn-block " :disabled="loading">
+      <button @click="goToCreatejournal()" class="btn btn-primary btn-block" style="float:right" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
