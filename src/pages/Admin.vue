@@ -2,7 +2,7 @@
   <div>
     <Navbar location="admin"></Navbar>
 
-    <b-tabs content-class="mt-3">
+    <b-tabs content-class="mt-3" style="padding: 25px;">
       <b-tab title="Users" active>
         <div v-if="users_loading">Loading users . . .</div>
         <div v-else>
