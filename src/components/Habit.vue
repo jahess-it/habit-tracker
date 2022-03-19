@@ -42,7 +42,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         username: this.habit.username,
         habit_rating: this.habit.habit_rating,
         day: this.habit.day,
-        complete: !this.habit.complete,
+        complete: this.habit.complete
       })
         .then(() => {
           this.loading = false;
