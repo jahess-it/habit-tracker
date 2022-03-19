@@ -3,14 +3,6 @@
     <div class="card card-container p-4">
       <form name="form" @submit.prevent="handleAdd">
         <div>
-          <div class="form-group">
-            <label for="habit_id">Habit Name</label>
-            <b-form-select
-              v-model="habit_id"
-              :options="habits"
-              class="form-control"
-              name="habit_id"
-            />
           </div>
           <div class="form-group">
             <label for="day">Day</label>
@@ -21,6 +13,25 @@
               name="day"
             />
           </div>
+          <div class="form-group">
+            <label for="journal">Journal Entry</label>
+            <input
+              v-model="description"
+              type="text"
+              class="form-control"
+              name="journal"
+            />
+          <div class="form-group">
+            <label for="day_rating">Rating</label>
+            <b-form-rating
+              v-model="value"
+              variant="success"
+              show-value
+              show-value-max
+              class="form-control"
+              name="day_rating"
+            ></b-form-rating>
+          </div>
 
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
@@ -28,7 +39,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Schedule Habit</span>
+              <span>Create Journal Entry</span>
             </button>
           </div>
         </div>
@@ -48,33 +59,21 @@ export default {
   name: "JournalCreator",
   data() {
     return {
-      habit_id: "",
+      journal: "",
       day: "",
-      complete: false,
+      day_rating: "",
       loading: false,
-      message: "",
-      habits: []
+      message: ""
     };
-  },
-  created: function () {
-    Api.getAllHabits(getUserIdFromToken(getJwtToken())).then((res) => {
-      for (var habit of res.data) {
-        this.habits.push({
-          value: habit.habit_id,
-          text: habit.title
-        });
-      }
-    });
   },
   methods: {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addDaySummary({ day: this.day }).then((_) => {
-        Api.addHabitInstance({
-          habit_id: this.habit_id,
+      Api.addDaySummary({ 
           day: this.day,
-          complete: this.complete,
+          journal: this.journal,
+          day_rating: this.day_rating,
         }).then((_) => {
           this.loading = false;
           this.$router.push("/");
