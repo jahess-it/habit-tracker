@@ -8,7 +8,6 @@
             <label for="day">Day</label>
             <b-form-datepicker
               v-model="day"
-              :min="new Date()"
               class="form-control"
               name="day"
             />
