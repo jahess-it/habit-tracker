@@ -22,7 +22,7 @@
     methods: {
       updateCompleted() {
         habit.complete = !this.habit.complete;
-        Api.updateHabitInstance({ habit }).then((_) => {
+        Api.updateHabitInstance(habit).then((res) => {
         }).catch((error) => {
           console.log(error);
           if (error.response) {
@@ -30,6 +30,7 @@
           }
           this.loading = false;
         });
+      },
     },
   };
 </script>
