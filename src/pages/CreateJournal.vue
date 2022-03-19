@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar location="createhabit"></Navbar>
+    <Navbar location="createjournal"></Navbar>
     <JournalCreator></JournalCreator>
   </div>
 </template>
