@@ -4,63 +4,31 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="title">Habit Name</label>
-            <input
-              v-model="title"
-              type="text"
-              class="form-control"
-              name="title"
-            />
-          </div>
-          <div class="form-group">
-            <label for="category_name"
-              >Habit Category
-              <router-link to="/createcategory">(Create)</router-link>
-            </label>
+            <label for="habit_id">Habit Name</label>
             <b-form-select
-              name="category_name"
-              v-model="category_name"
-              :options="categories"
-            ></b-form-select>
-          </div>
-          <div class="form-group">
-            <label for="description">Description (Optional)</label>
-            <input
-              v-model="description"
-              type="text"
+              v-model="habit_id"
+              :options="habits"
               class="form-control"
-              name="description"
+              name="habit_id"
             />
           </div>
           <div class="form-group">
-            <b-form-checkbox
-              id="checkbox-1"
-              v-model="timed"
-              name="checkbox-1"
-              value="true"
-              unchecked-value="false"
-            >
-              Timed
-            </b-form-checkbox>
+            <label for="day">Day</label>
+            <b-form-datepicker
+              v-model="day"
+              :min="new Date()"
+              class="form-control"
+              name="day"
+            />
           </div>
-          <div class="form-group">
-            <b-form-checkbox
-              id="checkbox-2"
-              v-model="ratable"
-              name="checkbox-2"
-              value="true"
-              unchecked-value="false"
-            >
-              Ratable
-            </b-form-checkbox>
-          </div>
+
           <div class="form-group">
             <button class="btn btn-primary btn-block" :disabled="loading">
               <span
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              <span>Add Habit</span>
+              <span>Schedule Habit</span>
             </button>
           </div>
         </div>
@@ -80,22 +48,20 @@ export default {
   name: "JournalCreator",
   data() {
     return {
-      timed: false,
-      ratable: false,
-      title: "",
-      category_name: "",
-      description: "",
+      habit_id: "",
+      day: "",
+      complete: false,
       loading: false,
       message: "",
-      categories: [],
+      habits: []
     };
   },
   created: function () {
-    Api.getCategories(getUserIdFromToken(getJwtToken())).then((res) => {
-      for (var category of res.data) {
-        this.categories.push({
-          value: category.category_name,
-          text: category.category_name,
+    Api.getAllHabits(getUserIdFromToken(getJwtToken())).then((res) => {
+      for (var habit of res.data) {
+        this.habits.push({
+          value: habit.habit_id,
+          text: habit.title
         });
       }
     });
@@ -104,24 +70,28 @@ export default {
     handleAdd() {
       this.loading = true;
       this.message = "";
-      Api.addHabit({
-        timed: this.timed,
-        ratable: this.ratable,
-        title: this.title,
-        category_name: this.category_name,
-        description: this.description,
-      })
-        .then(() => {
+      Api.addDaySummary({ day: this.day }).then((_) => {
+        Api.addHabitInstance({
+          habit_id: this.habit_id,
+          day: this.day,
+          complete: this.complete,
+        }).then((_) => {
           this.loading = false;
           this.$router.push("/");
-        })
-        .catch((error) => {
+        }).catch((error) => {
           console.log(error);
           if (error.response) {
             this.message = error.response.data.message;
           }
           this.loading = false;
         });
+      }).catch((error) => {
+        console.log(error);
+        if (error.response) {
+          this.message = error.response.data.message;
+        }
+        this.loading = false;
+      });
     },
   },
 };
