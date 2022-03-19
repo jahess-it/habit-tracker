@@ -33,9 +33,13 @@
           okTitle: "Demote User"
         }).then((res) => {
           if (res) {
-            //TODO: API call to demote user
-            console.log(`${this.user.username} demoted`);
+            Api.updateUser({
+              username: this.user.username,
+              privilege_level: "b"
+            });
           }
+        }).then((_) => {
+          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
@@ -47,9 +51,13 @@
           okTitle: "Promote to Admin"
         }).then((res) => {
           if (res) {
-            //TODO: API call to promote user
-            console.log(`${this.user.username} promoted`);
+            Api.updateUser({
+              username: this.user.username,
+              privilege_level: "a"
+            });
           }
+        }).then((_) => {
+          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
@@ -61,9 +69,10 @@
           okTitle: "Delete"
         }).then((res) => {
           if (res) {
-            //TODO: API call to delete user
-            console.log(`${this.user.username} deleted`);
+            Api.deleteUser(this.user);
           }
+        }).then((_) => {
+          this.$router.go();
         }).catch((err) => {
           console.log(err.response);
         });
