@@ -1,7 +1,6 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}">
-    <span style="float:left"><b>{{this.habit.title}}</b> </span>
-    <span style="float:center">Day: {{this.habit.day}} </span>
+    <span style="float:left"><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
     <span style="float:right"> Complete: {{this.habit.complete}} 
       <button type="button" @click="handleComplete()"> Completed </button>
     </span>
