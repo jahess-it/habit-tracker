@@ -151,6 +151,5 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
           this.loading = false;
         });
     },
-  },
-};
+  };
 </script>
