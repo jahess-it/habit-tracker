@@ -13,7 +13,7 @@
             />
           </div>
           <div class="form-group">
-            <label for="category_name">Habit Category</label>
+            <label for="category_name">Habit Category <router-link to="/createcategory">(Create)</router-link> </label>
             <b-form-select name="category_name" v-model="category_name" :options="categories"></b-form-select>
           </div>
           <div class="form-group">
