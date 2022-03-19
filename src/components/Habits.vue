@@ -8,6 +8,8 @@
     <span style="float:right"> Ratable: {{this.habit.ratable}} 
       <button type="button" @click="handleRatable()"> Ratable </button>
     </span>
+    </p>
+    <p>
     <span> Description: {{this.habit.description}} </span>
 
     <form name="form" @submit.prevent="handleTitle"> 
