@@ -150,7 +150,7 @@ class Api {
   }
   
   deleteUser(user) {
-    return axios.delete(`${API_URL}/user_accout?username=eq.${user.username}`, {
+    return axios.delete(`${API_URL}/user_account?username=eq.${user.username}`, {
       headers: authHeader()
     });
   }
