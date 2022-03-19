@@ -24,9 +24,9 @@
     handleAdd() {
       this.loading = true;
       this.message = "";
-      habit.complete = !habit.complete
+      this.habit.complete = !this.habit.complete
       Api.updateHabitInstance({
-        habit
+        this.habit
       })
         .then(() => {
           this.loading = false;
