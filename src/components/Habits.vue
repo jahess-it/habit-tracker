@@ -26,7 +26,7 @@
     </form>
     <b-button
         variant="outline-danger"
-        float:right
+        style = "float:right"
         @click="() => handleDelete(habit.habit_id)"
         >Delete</b-button
       >
