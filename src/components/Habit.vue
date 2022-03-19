@@ -2,7 +2,7 @@
   <div :style="{'background-color': this.habit.display_color}">
     <p><b>{{this.habit.title}}</b>
     Time Spent: {{this.habit.time_spent}} <button type="button">Input Time</button>
-    Habit Rating: {{this.habit.habit_rating}} <button type="button">Input Rating</button>
+    Habit Rating: {{this.habit.habit_rating}} <form onsubmit="handleRating()"> Enter Rating: <input type="text" v-model="habit_rating" name="habit_rating"> <input type="submit"> </form>
     Day: {{this.habit.day}} 
     Complete: {{this.habit.complete}} <button type="button" @click="handleComplete()"> Completed </button>
     </p>
@@ -81,7 +81,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
         habit_id: this.habit.habit_id,
         username: this.habit.username,
         day: this.habit.day,
-        complete: !this.habit.complete
+        habit_rating: this.habit.complete
       })
         .then(() => {
           this.loading = false;
