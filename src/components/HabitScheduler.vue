@@ -4,7 +4,7 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="habit_id">Habit ID</label>
+            <label for="habit_id">Habit Name</label>
             <b-form-select
               v-model="habit_id"
               :options="habits"
