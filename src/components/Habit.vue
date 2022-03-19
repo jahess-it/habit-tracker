@@ -20,7 +20,11 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
     },
     data () {
       return {
-      newHabit: Object
+      title: "",
+      time_spent: 0,
+      habit_rating: 0,
+      day: "",
+      complete: false,
       };
     },
     created: function () {
@@ -29,10 +33,12 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
     handleAdd() {
       this.loading = true;
       this.message = "";
-      newHabit = this.habit;
-      newHabit.complete = !newHabit.complete;
       Api.updateHabitInstance({
-        newHabit
+        title: this.title,
+        time_spent: this.time_spent,
+        habit_rating: this.habit_rating,
+        day: this.day,
+        complete: !this.complete,
       })
         .then(() => {
           this.loading = false;
