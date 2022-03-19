@@ -77,7 +77,7 @@
 import Api from "../api";
 import { getJwtToken, getUserIdFromToken } from "../auth";
 export default {
-  name: "HabitCreator",
+  name: "JournalCreator",
   data() {
     return {
       timed: false,
