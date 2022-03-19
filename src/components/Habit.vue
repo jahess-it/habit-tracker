@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'padding: 25px; background-color': this.habit.display_color}">
+  <div :style="{'background-color': this.habit.display_color}">
   <p>
     <span><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
     <span style="float:right"> Complete: {{this.habit.complete}} 
