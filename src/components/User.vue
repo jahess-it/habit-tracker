@@ -23,16 +23,17 @@
       };
     },
     created: function () {
-      this.admin = (user.privilege_level == "a");
+      this.admin = (this.user.privilege_level == "a");
     },
     methods: {
       confirmDemote() {
-        this.$vbModal.msgBoxConfirm(`Demote admin user ${user.username} to basic user?`, {
+        this.$vbModal.msgBoxConfirm(`Demote admin user ${this.user.username} to basic user?`, {
           title: "Demote Admin",
           okVariant: "danger",
           okTitle: "Demote User"
         }).then((res) => {
           //TODO: API call to demote user
+          console.log(`${this.user.username} demoted`)
         }).catch((err) => {
           console.log(err.response);
         });
