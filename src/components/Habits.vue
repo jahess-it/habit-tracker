@@ -24,12 +24,11 @@
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <input type="submit" class="form-group"></span> 
     </form>
-    <form name="form" @submit.prevent="handleDelete"> 
-      Delete
-      <span class="form-group">
-      <input type="text" placeholder="Input New Description" class="form-group" v-model="habit_id" name="description">
-      <input type="submit" class="form-group"></span> 
-    </form>
+    <b-button
+        variant="outline-danger"
+        @click="() => handleDelete(habit.habit_id)"
+        >Delete</b-button
+      >
     </p>
   </div>
   
@@ -136,9 +135,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
   handleDelete(habit_id) {
       this.loading = true;
       this.message = "";
-      Api.deleteHabit({
-        habit_id: this.habit.habit_id
-      })
+      Api.deleteHabit(habit_id)
         .then(() => {
           this.loading = false;
           this.$router.go()
