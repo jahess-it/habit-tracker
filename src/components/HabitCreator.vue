@@ -14,6 +14,7 @@
           </div>
           <div class="form-group">
             <label for="category_name">Habit Category</label>
+            <b-form-select v-model="category_name" :options="categories"></b-form-select>
             <input
               v-model="category_name"
               type="text"
@@ -57,6 +58,7 @@
 
 <script>
 import Api from "../api";
+import { getJwtToken, getUserIdFromToken } from "../auth";
 import Checkbox from "./Checkbox";
 
 export default {
@@ -71,7 +73,18 @@ export default {
       description: "",
       loading: false,
       message: "",
+      categories: []
     };
+  },
+  created: function () {
+    Api.getCategories(getUserIdFromToken(getJwtToken())).then((res) => {
+      for (category of res.data) {
+        categories.push({
+          value: category.category_name,
+          text: category.category_name
+        });
+      }
+    });
   },
   methods: {
     handleAdd() {
