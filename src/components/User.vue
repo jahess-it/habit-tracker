@@ -27,7 +27,7 @@
     },
     methods: {
       confirmDemote() {
-        this.$vbModal.msgBoxConfirm(`Demote admin user ${this.user.username} to basic user?`, {
+        this.$bvModal.msgBoxConfirm(`Demote admin user ${this.user.username} to basic user?`, {
           title: "Demote Admin",
           okVariant: "danger",
           okTitle: "Demote User"
