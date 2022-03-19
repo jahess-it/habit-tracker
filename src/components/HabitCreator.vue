@@ -73,7 +73,7 @@ export default {
   created: function () {
     Api.getCategories(getUserIdFromToken(getJwtToken())).then((res) => {
       for (var category of res.data) {
-        categories.push({
+        this.categories.push({
           value: category.category_name,
           text: category.category_name
         });
