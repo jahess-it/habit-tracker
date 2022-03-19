@@ -15,12 +15,6 @@
           <div class="form-group">
             <label for="category_name">Habit Category</label>
             <b-form-select v-model="category_name" :options="categories"></b-form-select>
-            <input
-              v-model="category_name"
-              type="text"
-              class="form-control"
-              name="category_name"
-            />
           </div>
           <div class="form-group">
             <label for="description">Description (Optional)</label>
@@ -78,7 +72,7 @@ export default {
   },
   created: function () {
     Api.getCategories(getUserIdFromToken(getJwtToken())).then((res) => {
-      for (category of res.data) {
+      for (var category of res.data) {
         categories.push({
           value: category.category_name,
           text: category.category_name
