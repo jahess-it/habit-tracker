@@ -2,30 +2,24 @@
   <div>
     <Navbar location="admin"></Navbar>
 
-    <div>
-      <br />
-      <b-button variant="primary" :pressed.sync="show_users">
-        {{ show_users ? "Show Habits" : "Show Users" }}
-      </b-button>
-      <br />
-    </div>
-
-    <div v-if="show_users">
-      <div v-if="users_loading">Loading users . . .</div>
-      <div v-else>
-        <div v-for="user in users" :key="user.username">
-          <p>Placeholder</p>
+    <b-tabs content-class="mt-3">
+      <b-tab title="Users" active>
+        <div v-if="users_loading">Loading users . . .</div>
+        <div v-else>
+          <div v-for="user in users" :key="user.username">
+            <User :user="user"></User>
+          </div>
         </div>
-      </div>
-    </div>
-    <div v-else>
-      <div v-if="habits_loading">Loading habits . . .</div>
-      <div v-else>
-        <div v-for="habit in habits" :key="habit.habit_id">
-          <Habits :habit="habit"></Habits>
+      </b-tab>
+      <b-tab title="Habits">
+        <div v-if="habits_loading">Loading habits . . .</div>
+        <div v-else>
+          <div v-for="habit in habits" :key="habit.habit_id">
+            <Habits :habit="habit"></Habits>
+          </div>
         </div>
-      </div>
-    </div>
+      </b-tab>
+    </b-tabs>
   </div>
 </template>
 
@@ -33,12 +27,12 @@
   import Api from "../api";
   import Navbar from "../components/Navbar.vue";
   import Habits from "../components/Habits.vue";
+  import User from "../components/User.vue";
   
   export default {
     name: "admin",
     data: function () {
       return {
-        show_users: true,
         users_loading: true,
         users: [],
         habits_loading: true,
@@ -57,7 +51,8 @@
     },
     components: {
       Habits,
-      Navbar
+      Navbar,
+      User
     }
   };
 </script>
