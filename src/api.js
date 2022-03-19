@@ -73,12 +73,13 @@ class Api {
   }
 
   addDaySummary(day_summary) {
+    const username = getUserIdFromToken(getJwtToken());
     return axios.put(
-      `${API_URL}/day_summary?day=eq.${day_summary.day}`,
+      `${API_URL}/day_summary?day=eq.${day_summary.day}&username=eq.${username}`,
       {
         ...day_summary,
         // add user id from JWT token
-        username: getUserIdFromToken(getJwtToken()),
+        username: this.username,
       },
       {
         headers: authHeader(),
