@@ -54,7 +54,7 @@ export default {
         options: [
           { value: null, text: 'Please select a color' },
           { value: '#C8E0FA', html: "<p style='color:#C8E0FA;'>██ Blue</p>" },
-          { value: '#F4ACA8', html: '<p style="color:#F4ACA8";>██ Red</p>' },
+          { value: '#F4ACA8', html: "<p style='color:#F4ACA8;'>██ Red</p>" },
           { value: '#FFC8A1', text: '⬛ Orange' },
           { value: '#C3FAC2', text: '⬛ Green' },
           { value: '#FFEDB9', text: '⬛ Yellow' },
