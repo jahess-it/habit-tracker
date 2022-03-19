@@ -13,6 +13,7 @@
             />
           </div>
           <div class="form-group">
+            <label for="display_color">Display Color</label>
             <div>
               <b-form-select
                 v-model="display_color"
@@ -51,9 +52,13 @@ export default {
       message: "",
       display_color: null,
         options: [
-          { value: null, text: 'Please select an option' },
-          { value: '#FF0000', text: 'Red' },
-          { value: '#00FF00', text: 'Green' }
+          { value: null, text: 'Please select a color' },
+          { value: '#C8E0FA', text: '⬛ Blue' },
+          { value: '#F4ACA8', text: '⬛ Red' },
+          { value: '#FFC8A1', text: '⬛ Orange' },
+          { value: '#C3FAC2', text: '⬛ Green' },
+          { value: '#FFEDB9', text: '⬛ Yellow' },
+          { value: '#D3D3D3', text: '⬛ Gray' }
         ]
     };
   },
