@@ -8,6 +8,9 @@
     <div>
       <h2 style="text-align: center">This Month</h2>
     </div>
+    <button @click="goToSchedulehabit()" class="btn btn-primary btn-block">
+      <span>Schedule Habit</span>
+    </button>
     <div v-if="loading">Loading habits . . .</div>
     <div v-else class="card card-container p-4">
       <div v-for="habit in habits" :key="habit.habit_id">
@@ -40,6 +43,11 @@ export default {
       this.habits = res.data;
       this.loading = false;
     });
+  },
+  methods: {
+    goToSchedulehabit() {
+   this.$router.push('/schedulehabit'); 
+      }
   },
   components: { Habit, Navbar }
 };
