@@ -17,7 +17,6 @@
     data: function () {
       return {};
     },
-    created: function () {},
     methods: {
       updateCompleted() {
         habit.complete = !this.habit.complete
