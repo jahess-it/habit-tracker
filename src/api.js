@@ -101,7 +101,6 @@ class Api {
     );
   }
 
-
   updateHabit(habit) {
     const username = getUserIdFromToken(getJwtToken());
     return axios.patch(
@@ -117,8 +116,6 @@ class Api {
     );
   }
   
-  
-  
   updateHabitInstance(habit) {
     const username = getUserIdFromToken(getJwtToken());
     return axios.patch(
@@ -126,7 +123,7 @@ class Api {
       {
         ...habit,
         // add user id from JWT token
-        username: getUserIdFromToken(getJwtToken()),
+        username: username,
       },
       {
         headers: authHeader(),
@@ -134,14 +131,29 @@ class Api {
     );
   }
 
-  
   deleteHabit(id) {
     return axios.delete(API_URL + `/habit?habit_id=eq.${id}`, {
       headers: authHeader(),
     });
   }
   
- 
+  updateUser(user) {
+    return axios.patch(
+      `${API_URL}/user_account?username=eq.${user.username}`,
+      {
+        ...user
+      },
+      {
+        headers: authHeader()
+      }
+    );
+  }
+  
+  deleteUser(user) {
+    return axios.delete(`${API_URL}/user_accout?username=eq.${user.username}`, {
+      headers: authHeader()
+    });
+  }
 
   addArticle(article) {
     return axios.post(
