@@ -18,13 +18,13 @@
       Change Title:
       <span class="form-group">
       <input type="text" placeholder="Input New Title" class="form-group" v-model="title" name="title">
-      <input type="submit" class="form-group"></span> 
+      <input type="submit" class="form-group" value="Change Title"></span> 
     </form>
     <form name="form" @submit.prevent="handleDescription"> 
       Change Description:
       <span class="form-group">
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
-      <input type="submit" class="form-group"></span> 
+      <input type="submit" class="form-group" value="Change Description"></span> 
     </form>
       <b-button
       @click="() => handleDelete(habit.habit_id)"
