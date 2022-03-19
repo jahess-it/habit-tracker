@@ -16,9 +16,6 @@ import CreateHabit from "./pages/CreateHabit";
 import ScheduleHabit from "./pages/ScheduleHabit";
 import CreateCategory from "./pages/CreateCategory";
 import CreateJournal from "./pages/CreateJournal";
-import AdminArticleAdd from "./components/AdminArticleAdd";
-import AdminArticleList from "./components/AdminArticleList";
-import AdminArticleEdit from "./components/AdminArticleEdit";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = true;
@@ -81,11 +78,6 @@ const router = new VueRouter({
       path: "/admin",
       component: Admin,
       beforeEnter: checkAdmin,
-      children: [
-        { path: "add", component: AdminArticleAdd },
-        { path: "edit/:id", component: AdminArticleEdit },
-        { path: "", component: AdminArticleList },
-      ],
     },
   ]
 });
