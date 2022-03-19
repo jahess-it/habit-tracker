@@ -4,7 +4,7 @@
     Time Spent: {{this.habit.time_spent}} <button type="button">Input Time</button>
     Habit Rating: {{this.habit.habit_rating}} <button type="button">Input Rating</button>
     Day: {{this.habit.day}} 
-    Complete: {{this.habit.complete}} <button type="button" @click="handleAdd()"> Completed </button>
+    Complete: {{this.habit.complete}} <button type="button" @click="handleComplete()"> Completed </button>
     </p>
   </div>
 </template>
@@ -32,7 +32,7 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
     created: function () {
     },
     methods: {
-    handleAdd() {
+    handleComplete() {
       this.loading = true;
       this.message = "";
       Api.updateHabitInstance({
@@ -43,6 +43,49 @@ import { getJwtToken, getUserIdFromToken } from "../auth";
       })
         .then(() => {
           this.loading = false;
+          this.$router.go()
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
+    },
+    handleTime() {
+      this.loading = true;
+      this.message = "";
+      Api.updateHabitInstance({
+        habit_id: this.habit.habit_id,
+        username: this.habit.username,
+        day: this.habit.day,
+        complete: !this.habit.complete
+      })
+        .then(() => {
+          this.loading = false;
+          this.$router.go()
+        })
+        .catch((error) => {
+          console.log(error);
+          if (error.response) {
+            this.message = error.response.data.message;
+          }
+          this.loading = false;
+        });
+    },
+    handleRating() {
+      this.loading = true;
+      this.message = "";
+      Api.updateHabitInstance({
+        habit_id: this.habit.habit_id,
+        username: this.habit.username,
+        day: this.habit.day,
+        complete: !this.habit.complete
+      })
+        .then(() => {
+          this.loading = false;
+          this.$router.go()
         })
         .catch((error) => {
           console.log(error);
