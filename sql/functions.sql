@@ -38,7 +38,7 @@ CREATE OR REPLACE FUNCTION trigger_save_deleted_habit()
     END;
     $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE TRIGGER save_deleted_habit
+CREATE TRIGGER save_deleted_habit
     BEFORE DELETE ON habit
     FOR EACH ROW
     EXECUTE PROCEDURE trigger_save_deleted_habit();
