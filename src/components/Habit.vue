@@ -30,6 +30,6 @@
           }
           this.loading = false;
         });
-    }
+    },
   };
 </script>
