@@ -19,7 +19,7 @@
     created: function () {},
     methods: {
       confirmDelete() {
-        this.$bvModal.msgBoxConfirm
+        this.$bvModal.msgBoxConfirm(
           "Delete your account? All data associated with your account will be deleted. <b>This action cannot be undone</b>",
           {
             title: "Delete User",
