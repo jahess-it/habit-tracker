@@ -139,7 +139,7 @@ export default {
     handleDelete() {
       this.loading = true;
       this.message = "";
-      this.$bvModal.msgBoxConfirm(`Delete habit ${this.habit.title}? This will also delete all schedule occurances of this habit.`, {
+      this.$bvModal.msgBoxConfirm(`Delete habit ${this.habit.title}? This will also delete all schedule occurrences of this habit.`, {
         title: "Delete Habit",
         okVariant: "danger",
         okTitle: "Delete"
