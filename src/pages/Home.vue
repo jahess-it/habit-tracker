@@ -6,37 +6,39 @@
       <h1 style="text-align: center">Habit Tracker</h1>
     </div>
     
-    <b-tabs content-class="mt-3" style="padding: 25px;">
-      <b-tab title="Your Habits" active>
-        <div>
-          <h2 style="text-align: center">Your Habits</h2>
-        </div>
-        <button @click="goToCreatehabit()" class="btn btn-primary btn-block">
-           <span>Create Habit</span>
-        </button>
-        <div v-if="loading1">Loading habits . . .</div>
-        <div v-else class="card card-container p-4">
-          <div v-for="habit in habitss" :key="habit.habit_id">
-            <Habits :habit="habit"></Habits>
+    <div>
+      <b-tabs content-class="mt-3" style="padding: 25px;">
+        <b-tab title="Your Habits" active>
+          <div>
+            <h2 style="text-align: center">Your Habits</h2>
           </div>
-        </div>
-      </b-tab>
-      
-      <b-tab title="Upcoming Habits>
-        <div>
-          <h2 style="text-align: center">Upcoming Habits</h2>
-        </div>
-        <button @click="goToSchedulehabit()" class="btn btn-primary btn-block">
-           <span>Schedule Habit</span>
-        </button>
-        <div v-if="loading2">Loading habits . . .</div>
-        <div v-else class="card card-container p-4">
-          <div v-for="habit in habits" :key="habit.habit_id">
-            <Habit :habit="habit"></Habit>
+          <button @click="goToCreatehabit()" class="btn btn-primary btn-block">
+             <span>Create Habit</span>
+          </button>
+          <div v-if="loading1">Loading habits . . .</div>
+          <div v-else class="card card-container p-4">
+            <div v-for="habit in habitss" :key="habit.habit_id">
+              <Habits :habit="habit"></Habits>
+            </div>
           </div>
-        </div>
-      </b-tab>
-    </b-tabs>
+        </b-tab>
+
+        <b-tab title="Upcoming Habits>
+          <div>
+            <h2 style="text-align: center">Upcoming Habits</h2>
+          </div>
+          <button @click="goToSchedulehabit()" class="btn btn-primary btn-block">
+             <span>Schedule Habit</span>
+          </button>
+          <div v-if="loading2">Loading habits . . .</div>
+          <div v-else class="card card-container p-4">
+            <div v-for="habit in habits" :key="habit.habit_id">
+              <Habit :habit="habit"></Habit>
+            </div>
+          </div>
+        </b-tab>
+      </b-tabs>
+    </div>
   </div>
 </template>
 
