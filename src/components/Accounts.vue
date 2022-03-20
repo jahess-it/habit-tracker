@@ -8,6 +8,8 @@
 </template>
 
 <script>
+  import Api from "../api";
+  
   export default {
     name: "accounts",
     props: {
@@ -28,12 +30,8 @@
           }
         ).then((res) => {
           if (res) {
-            console.log(this.account);
             Api.deleteUser(this.account).then((_) => {
-              console.log("Deleted");
               this.$router.push("/logout");
-            }).catch((err) => {
-              console.log(err.response);
             });
           }
         }).catch((err) => {
