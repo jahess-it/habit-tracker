@@ -136,7 +136,7 @@ export default {
           this.loading = false;
         });
     },
-    handleDelete(habit) {
+    handleDelete() {
       this.loading = true;
       this.message = "";
       this.$bvModal.msgBoxConfirm(`Delete habit ${this.habit}?`, {
