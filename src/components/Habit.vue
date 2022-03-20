@@ -3,20 +3,20 @@
   <p>
     <span><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
     <span style="float:right"> Complete: {{this.habit.complete}} 
-      <button type="button" @click="handleComplete()"> Completed </button>
+      <b-button type="button" class="btn-sm" @click="handleComplete()"> Completed </b-button>
     </span>
 
     <form v-if="habit.timed" name="form" @submit.prevent="handleTime">
       Time Spent: {{this.habit.time_spent}}
       <span class="form-group">
       <input type="text" placeholder="Input Time" class="form-group" v-model="time_spent" name="time_spent">
-      <input type="submit" class="form-group" value="Submit Time"></span>
+      <b-button type="submit" class="form-group btn-sm" style="vertical-align: bottom;"> Submit Time </b-button> </span>
     </form>
     <form v-if="habit.ratable" name="form" @submit.prevent="handleRating">
       Habit Rating: {{this.habit.habit_rating}}
       <span class="form-group">
       <input type="text" placeholder="Input Rating" class="form-group" v-model="habit_rating" name="habit_rating">
-      <input type="submit" class="form-group" value="Submit Rating"></span>
+      <b-button type="submit" class="form-group btn-sm" style="vertical-align: bottom;"> Submit Rating </b-button> </span>
     </form>
     </p>
   </div>
