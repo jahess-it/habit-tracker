@@ -17,14 +17,14 @@
     <form name="form" @submit.prevent="handleTitle"> 
       Change Title:
       <span class="form-group">
-      <input type="text" placeholder="Input New Title" class="form-control" v-model="title" name="title">
+      <input type="text" placeholder="Input New Title" class="form-group" v-model="title" name="title">
       <!--<input type="submit" class="form-group" value="Change Title"></span> -->
       <b-button type="submit" class="form-group btn-sm"> Change Title </b-button> </span>
     </form>
     <form name="form" @submit.prevent="handleDescription"> 
       Change Description:
       <span class="form-group">
-      <input type="text" placeholder="Input New Description" class="form-control" v-model="description" name="description">
+      <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <!--<input type="submit" class="form-group" value="Change Description"></span> -->
       <b-button type="submit" class="form-group btn-sm"> Change Description </b-button> </span>
     </form>
