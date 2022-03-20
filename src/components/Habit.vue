@@ -1,7 +1,7 @@
 <template>
   <div :style="{'background-color': this.habit.display_color}" style="padding: 25px;">
-  <p>
-    <span><b>{{this.habit.title}} on {{this.habit.day}} </b> </span>
+  <p :style="this.habit.complete ? 'text-decoration' : ''">
+    <span><b>{{this.habit.title}} on {{this.habit.day}}</b></span>
     <span style="float:right"> Complete: {{this.habit.complete}} 
       <b-button type="button" class="btn-sm" @click="handleComplete()"> Completed </b-button>
     </span>
