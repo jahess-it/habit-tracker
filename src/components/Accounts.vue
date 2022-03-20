@@ -20,7 +20,7 @@
     methods: {
       confirmDelete() {
         this.$bvModal.msgBoxConfirm(
-          "Delete your account? All data associated with your account will be deleted. <b>This action cannot be undone</b>",
+          "Delete your account? All data associated with your account will be deleted. This action cannot be undone!",
           {
             title: "Delete User",
             okVariant: "danger",
