@@ -4,15 +4,6 @@
       <form name="form" @submit.prevent="handleAdd">
         <div>
           <div class="form-group">
-            <label for="title">Habit Name</label>
-            <input
-              v-model="title"
-              type="text"
-              class="form-control"
-              name="title"
-            />
-          </div>
-          <div class="form-group">
             <label for="category_name"
               >Habit Category
               <router-link to="/createcategory">(Create)</router-link>
@@ -22,6 +13,15 @@
               v-model="category_name"
               :options="categories"
             ></b-form-select>
+          </div>
+          <div class="form-group">
+            <label for="title">Habit Name</label>
+            <input
+              v-model="title"
+              type="text"
+              class="form-control"
+              name="title"
+            />
           </div>
           <div class="form-group">
             <label for="description">Description (Optional)</label>
