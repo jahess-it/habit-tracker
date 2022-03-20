@@ -12,7 +12,8 @@ CREATE OR REPLACE VIEW month AS
 
 CREATE OR REPLACE VIEW journal AS
     SELECT day, username, journal, day_rating
-    FROM day_summary;
+    FROM day_summary
+    ORDER BY day;
 
 CREATE OR REPLACE VIEW admin AS
     SELECT username, title
