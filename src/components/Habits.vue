@@ -3,10 +3,10 @@
   <p>
     <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
     <span style="float:right"> Timed: {{this.habit.timed}} 
-      <button type="button" @click="handleTimed()"> Timed </button>
+      <b-button type="button" class="btb-sm" style="vertical-align: bottom;" @click="handleTimed()"> Timed </b-button>
     </span>
     <span style="float:right"> Ratable: {{this.habit.ratable}} 
-      <button type="button" @click="handleRatable()"> Ratable </button>
+      <b-button type="button" class="btn-sm" style="vertical-align: bottom;" @click="handleRatable()"> Ratable </b-button>
     </span>
     </p>
     <p>
@@ -26,7 +26,7 @@
       <span class="form-group">
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <!--<input type="submit" class="form-group" value="Change Description"></span> -->
-      <b-button type="submit" class="form-group btn-sm"> Change Description </b-button> </span>
+      <b-button type="submit" class="form-group btn-sm" style="vertical-align: bottom;"> Change Description </b-button> </span>
     </form>
     <b-button
       @click="() => handleDelete(habit.habit_id)"
