@@ -31,7 +31,7 @@
     <b-button
       @click="() => handleDelete()"
       variant="danger"
-      ><b-icon icon="trash">
+      ><b-icon icon="trash"></b-icon>
     </b-button>
 
     </p>
