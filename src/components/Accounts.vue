@@ -29,7 +29,7 @@
         ).then((res) => {
           if (res) {
             Api.deleteUser(this.account.username).then((_) => {
-              this.$router.go();
+              this.$router.push("/logout");
             });
           }
         }).catch((err) => {
