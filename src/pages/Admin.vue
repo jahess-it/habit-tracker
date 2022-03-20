@@ -1,6 +1,10 @@
 <template>
   <div>
     <Navbar location="admin"></Navbar>
+    <br />
+    <div>
+      <h1 style="text-align: center">Habit Tracker</h1>
+    </div>
 
     <b-tabs content-class="mt-3" style="padding: 25px;">
       <b-tab title="Users" active>
