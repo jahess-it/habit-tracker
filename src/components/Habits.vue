@@ -25,7 +25,7 @@
       <span class="form-group">
       <input type="text" placeholder="Input New Description" class="form-group" v-model="description" name="description">
       <!--<input type="submit" class="form-group" value="Change Description"></span> -->
-      <b-button type="submit" class="form-group"> Change Description </b-button> </span>
+      <b-button type="submit" class="form-group btn-sm"> Change Description </b-button> </span>
     </form>
     <b-button
       @click="() => handleDelete(habit.habit_id)"
