@@ -3,10 +3,10 @@
   <p>
     <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
     <span style="float:right"> Timed: {{this.habit.timed}} 
-      <b-button type="button" class="btn-sm" @click="handleTimed()"> Timed </b-button>
+      <b-button type="button" class="btn-sm" @click="handleTimed()"> Toggle Timed </b-button>
     </span>
     <span style="float:right"> Ratable: {{this.habit.ratable}} 
-      <b-button type="button" class="btn-sm" style="vertical-align: bottom;" @click="handleRatable()"> Ratable </b-button>
+      <b-button type="button" class="btn-sm" @click="handleRatable()"> Toggle Ratable </b-button>
     </span>
     </p>
     <p>
