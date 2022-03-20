@@ -28,10 +28,11 @@
           }
         ).then((res) => {
           if (res) {
-            console.log("Deleting");
             Api.deleteUser(this.account).then((_) => {
               console.log("Deleted");
               this.$router.push("/logout");
+            }).catch((err) => {
+              console.log(err.response);
             });
           }
         }).catch((err) => {
