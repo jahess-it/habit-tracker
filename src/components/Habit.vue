@@ -6,17 +6,17 @@
       <button type="button" @click="handleComplete()"> Completed </button>
     </span>
 
-    <form name="form" @submit.prevent="handleTime"> 
+    <form v-if="habit.timed" name="form" @submit.prevent="handleTime">
       Time Spent: {{this.habit.time_spent}}
       <span class="form-group">
       <input type="text" placeholder="Input Time" class="form-group" v-model="time_spent" name="time_spent">
-      <input type="submit" class="form-group" value="Submit Time"></span> 
+      <input type="submit" class="form-group" value="Submit Time"></span>
     </form>
-    <form name="form" @submit.prevent="handleRating"> 
-      Habit Rating: {{this.habit.habit_rating}} 
+    <form v-if="habit.ratable" name="form" @submit.prevent="handleRating">
+      Habit Rating: {{this.habit.habit_rating}}
       <span class="form-group">
       <input type="text" placeholder="Input Rating" class="form-group" v-model="habit_rating" name="habit_rating">
-      <input type="submit" class="form-group" value="Submit Rating"></span> 
+      <input type="submit" class="form-group" value="Submit Rating"></span>
     </form>
     </p>
   </div>
