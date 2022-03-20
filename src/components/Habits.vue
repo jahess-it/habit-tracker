@@ -19,7 +19,7 @@
       <span class="form-group">
       <input type="text" placeholder="Input New Title" class="form-group" v-model="title" name="title">
       <!--<input type="submit" class="form-group" value="Change Title"></span> -->
-      <b-button type="submit" class="form-group btn-sm" style="vertical-align: middle;"> Change Title </b-button> </span>
+      <b-button type="submit" class="form-group btn-sm" style="vertical-align: bottom;"> Change Title </b-button> </span>
     </form>
     <form name="form" @submit.prevent="handleDescription"> 
       Change Description:
