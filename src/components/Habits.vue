@@ -29,8 +29,9 @@
       <b-button type="submit" class="form-group btn-sm" style="vertical-align: bottom;"> Change Description </b-button> </span>
     </form>
     <b-button
-      @click="() => handleDelete(habit.habit_id)"
-      >Delete
+      @click="() => handleDelete()"
+      variant="danger"
+      ><b-icon icon="trash">
     </b-button>
 
     </p>
@@ -135,21 +136,27 @@ export default {
           this.loading = false;
         });
     },
-    handleDelete(habit_id) {
+    handleDelete(habit) {
       this.loading = true;
       this.message = "";
-      Api.deleteHabit(habit_id)
-        .then(() => {
-          this.loading = false;
-          this.$router.go();
-        })
-        .catch((error) => {
-          console.log(error);
-          if (error.response) {
-            this.message = error.response.data.message;
-          }
-          this.loading = false;
-        });
+      this.$bvModal.msgBoxConfirm(`Delete habit ${this.habit}?`, {
+        title: "Delete Habit",
+        okVariant: "danger",
+        okTitle: "Delete"
+      }).then((res) => {
+        if (res) {
+          Api.deleteHabit(this.habit.habit_id).then(() => {
+            this.loading = false;
+            this.$router.go();
+          });
+        }
+      }).catch((error) => {
+        console.log(error);
+        if (error.response) {
+          this.message = error.response.data.message;
+        }
+        this.loading = false;
+      });
     },
   },
 };
