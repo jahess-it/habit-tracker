@@ -28,6 +28,7 @@
           }
         ).then((res) => {
           if (res) {
+            console.log(this.account);
             Api.deleteUser(this.account).then((_) => {
               console.log("Deleted");
               this.$router.push("/logout");
