@@ -2,12 +2,12 @@
   <div style="background-color: #ADD8E6; padding: 25px;">
   <p>
     <span><b>{{this.habit.title}} </b> in {{this.habit.category_name}} </span>
-    <!-- <span style="float:right"> Timed: {{this.habit.timed}} 
+    <span style="float:right"> Timed: {{this.habit.timed}} 
       <button type="button" @click="handleTimed()"> Timed </button>
     </span>
     <span style="float:right"> Ratable: {{this.habit.ratable}} 
       <button type="button" @click="handleRatable()"> Ratable </button>
-    </span> -->
+    </span>
     </p>
     <p>
     <span> Description: {{this.habit.description}} </span>
