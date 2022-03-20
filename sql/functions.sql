@@ -13,11 +13,13 @@ CREATE OR REPLACE FUNCTION get_calendar(start DATE, finish DATE) RETURNS TABLE(
     title VARCHAR(255),
     day DATE,
     complete BOOL,
+    timed BOOL,
     time_spent INTERVAL HOUR TO SECOND (0),
+    ratable BOOL,
     habit_rating FLOAT4,
     display_color CHAR(7))
     AS $$
-    SELECT h.username, h.habit_id, h.title, i.day, i.complete, i.time_spent, i.habit_rating, c.display_color
+    SELECT h.username, h.habit_id, h.title, i.day, i.complete, h.timed, i.time_spent, h.ratable, i.habit_rating, c.display_color
     FROM habit h
     INNER JOIN habit_instance i ON h.habit_id = i.habit_id
     INNER JOIN category c ON h.category_name = c.category_name AND h.username = c.username
